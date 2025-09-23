@@ -15,8 +15,8 @@ export default function Testimonials() {
           <Card key={idx}>
             <CardContent className="p-6">
               <p className="italic mb-4">
-                "Boost your product and service's credibility by adding
-                testimonials from your clients."
+                {`"Boost your product and service's credibility by adding
+                testimonials from your clients."`}
               </p>
               <h4 className="font-semibold">{review.name}</h4>
             </CardContent>

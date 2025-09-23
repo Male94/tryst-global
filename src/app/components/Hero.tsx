@@ -30,19 +30,13 @@ export default function Hero() {
         animate="show"
         className="max-w-full max-h-full absolute top-[30%] px-4 flex flex-col justify-end"
       >
-        <motion.h1
-          variants={item}
-          className="text-9xl font-extralight mb-4 ramillas text-black"
-        >
+        <motion.h1 className="text-9xl font-extralight mb-4 ramillas text-black">
           Tryst
           <br />
           <span className="inline-block ml-64">Global</span>
         </motion.h1>
 
-        <motion.p
-          variants={item}
-          className="text-2xl mb-6 fraunces italic font-thin"
-        >
+        <motion.p className="text-2xl mb-6 fraunces italic font-thin">
           The Apparel Solution Provider
         </motion.p>
 
