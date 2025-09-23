@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "TT Ramillas";
+  src: url("/fonts/TTRamillas/TT Ramillas Trial Regular.ttf") format("ttf");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TT Ramillas";
+  src: url("/fonts/TTRamillas/TT Ramillas Trial Bold.ttf") format("ttf");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+.ramillas {
+  font-family: "TT Ramillas", serif;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --font-fraunces: "Fraunces", sans-serif;
+}
+
+.fraunces {
+  font-family: var(--font-fraunces);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
