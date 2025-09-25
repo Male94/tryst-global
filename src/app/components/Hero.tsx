@@ -19,7 +19,7 @@ const item = {
 
 export default function HeroSection() {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-[url('/images/hero_img.png')] bg-cover bg-center">
+    <section className="min-h-screen flex items-center justify-center bg-[url('/images/hero_img.png')] bg-fill md:bg-cover bg-center">
       <motion.div
         variants={container}
         initial="hidden"
@@ -28,17 +28,19 @@ export default function HeroSection() {
       >
         <motion.h1
           variants={item}
-          className="text-9xl font-extralight ramillas text-black leading-tight"
+          className="text-8xl md:text-9xl font-extralight ramillas text-black leading-tight"
         >
           <div className="flex flex-col gap-0">
             <span className="">Tryst</span>
-            <span className="block relative left-30 -mt-10">Global</span>
+            <span className="block relative left:20 md:left-30 -mt-5 md:-mt-10">
+              Global
+            </span>
           </div>
         </motion.h1>
 
         <motion.p
           variants={item}
-          className="text-3xl mb-6 fraunces italic font-thin"
+          className="text-3xl md:text-6xl mb-6 fraunces italic font-thin"
         >
           The Apparel Solution Provider
         </motion.p>
