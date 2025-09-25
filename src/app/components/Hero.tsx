@@ -1,50 +1,47 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Button } from "@/app/components/ui/button";
 
 const container = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.3, // each child appears 0.3s after the previous
+      staggerChildren: 0.1,
     },
   },
 };
 
 const item = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0 },
 };
 
-export default function Hero() {
+export default function HeroSection() {
   return (
-    <section
-      id="home"
-      className="w-full h-screen bg-gradient-to-r from-blue-900 to-blue-600 text-white flex flex-col justify-center items-center text-center"
-    >
+    <section className="min-h-screen flex items-center justify-center bg-[url('/images/hero_img.png')] bg-cover bg-center">
       <motion.div
         variants={container}
         initial="hidden"
         animate="show"
-        className="max-w-full max-h-full absolute top-[30%] px-4 flex flex-col justify-end"
+        className="w-full max-w-6xl px-4 flex flex-col justify-center items-center text-center"
       >
-        <motion.h1 className="text-9xl font-extralight mb-4 ramillas text-black">
-          Tryst
-          <br />
-          <span className="inline-block ml-64">Global</span>
+        <motion.h1
+          variants={item}
+          className="text-9xl font-extralight ramillas text-black leading-tight"
+        >
+          <div className="flex flex-col gap-0">
+            <span className="">Tryst</span>
+            <span className="block relative left-30 -mt-10">Global</span>
+          </div>
         </motion.h1>
 
-        <motion.p className="text-2xl mb-6 fraunces italic font-thin">
+        <motion.p
+          variants={item}
+          className="text-3xl mb-6 fraunces italic font-thin"
+        >
           The Apparel Solution Provider
         </motion.p>
-
-        {/* <motion.div variants={item}>
-          <Button size="lg" className="bg-white text-blue-800 ">
-            Learn More
-          </Button>
-        </motion.div> */}
       </motion.div>
     </section>
   );

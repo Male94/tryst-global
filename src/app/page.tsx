@@ -5,20 +5,23 @@ import Products from "@/app/components/Products";
 import Testimonials from "@/app/components/Testimonials";
 import Contact from "@/app/components/Contact";
 import Footer from "@/app/components/Footer";
+import ClothingSection from "./components/ClothingSection";
+import SearchField from "./components/SearchField";
+import SolutionsOffered from "./components/SolutionsOffered";
+import OurHandWritings from "./components/OurHandWritings";
 
 export default function HomePage() {
   return (
     <main className="flex flex-col min-h-screen">
+      <SearchField />
       <Navbar />
       <Hero />
 
-      <Section id="vision" title="Our Vision">
-        A placeholder for your company vision statement.
-      </Section>
+      <ClothingSection />
 
-      <Section id="mission" title="Our Mission" bg="bg-gray-50">
-        A placeholder for your mission statement.
-      </Section>
+      <SolutionsOffered />
+
+      <OurHandWritings />
 
       <Section id="development" title="Development Center">
         We utilize advanced pattern technology and 3D design to enhance our

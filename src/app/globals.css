@@ -16,14 +16,14 @@
   font-display: swap;
 }
 
-.ramillas {
-  font-family: "TT Ramillas", serif;
-}
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
   --font-fraunces: "Fraunces", sans-serif;
+}
+
+.ramillas {
+  font-family: "TT Ramillas", serif;
 }
 
 .fraunces {
