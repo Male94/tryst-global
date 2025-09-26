@@ -40,7 +40,7 @@ export default function HeroSection() {
 
         <motion.p
           variants={item}
-          className="text-3xl md:text-6xl mb-6 fraunces italic font-thin"
+          className="text-3xl mb-6 fraunces italic font-thin"
         >
           The Apparel Solution Provider
         </motion.p>

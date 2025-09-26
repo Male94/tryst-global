@@ -8,7 +8,7 @@ export default function OurHandWritings() {
           src="/images/OurHandWritingsIMG.png"
           alt="our hand writing img"
           fill
-          className="object-full"
+          className="object-cover"
           priority
         />
         {/* Section Title */}
@@ -18,9 +18,9 @@ export default function OurHandWritings() {
 
         {/* Main Layout */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 min-h-[600px]">
-          <div className="md:col-span-4"></div>
+          <div className="max-sm:hidden md:col-span-4"></div>
           {/* Right Side - Categories with Overlay */}
-          <div className="md:col-span-8 relative p-25">
+          <div className="flex justify-center items-center md:col-span-8 relative p-20 m-1">
             <div className="relative w-full h-full max-h-[300px] rounded-2xl overflow-hidden">
               {/* Semi-transparent overlay */}
               <div className="absolute inset-0 bg-white/70"></div>
@@ -43,7 +43,7 @@ export default function OurHandWritings() {
                     <br />
                     cover-ups, Smoked bra.
                   </p>
-                  <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wide">
+                  <h3 className="text-sm md:text-lg font-bold text-gray-900 uppercase tracking-wide">
                     SWIM WEAR & INTIMATES
                   </h3>
                 </div>
@@ -55,7 +55,7 @@ export default function OurHandWritings() {
                     <br />
                     Leggings
                   </p>
-                  <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wide">
+                  <h3 className="text-sm md:text-lg font-bold text-gray-900 uppercase tracking-wide">
                     ACTIVE WEAR
                   </h3>
                 </div>
@@ -67,7 +67,7 @@ export default function OurHandWritings() {
                     <br />
                     T-shirts and pants
                   </p>
-                  <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wide">
+                  <h3 className="text-sm md:text-lg font-bold text-gray-900 uppercase tracking-wide">
                     CASUAL WEAR
                   </h3>
                 </div>
@@ -81,7 +81,7 @@ export default function OurHandWritings() {
                     <br />
                     Fleece hoodie
                   </p>
-                  <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wide">
+                  <h3 className="text-sm md:text-lg font-bold text-gray-900 uppercase tracking-wide">
                     LOUNGE WEAR
                   </h3>
                 </div>

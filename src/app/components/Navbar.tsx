@@ -35,7 +35,7 @@ export default function Sidebar() {
         initial={{ x: "-100%" }}
         animate={{ x: isOpen ? 0 : "-100%" }}
         transition={{ type: "tween", duration: 0.3 }}
-        className="fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-40 flex flex-col"
+        className="fixed top-0 left-0 h-screen w-64 bg-white shadow-lg z-40 flex flex-col"
       >
         {/* Header with close button */}
         <div className="flex items-center justify-between px-6 py-4 border-b">

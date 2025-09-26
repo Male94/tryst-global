@@ -9,6 +9,9 @@ import ClothingSection from "./components/ClothingSection";
 import SearchField from "./components/SearchField";
 import SolutionsOffered from "./components/SolutionsOffered";
 import OurHandWritings from "./components/OurHandWritings";
+import CustomerReviews from "./components/CustomerReviews";
+import ConnectWithUs from "./components/ConnectWithUs";
+import CustomerLogos from "./components/CustomerLogos";
 
 export default function HomePage() {
   return (
@@ -23,29 +26,12 @@ export default function HomePage() {
 
       <OurHandWritings />
 
-      <Section id="development" title="Development Center">
-        We utilize advanced pattern technology and 3D design to enhance our
-        creative process.
-      </Section>
+      <CustomerReviews />
 
-      <Products />
+      <CustomerLogos />
 
-      <Section id="sourcing" title="Global Sourcing" bg="bg-gray-50">
-        We collaborate with suppliers from Vietnam, India and China to source
-        stylish materials.
-      </Section>
+      <ConnectWithUs />
 
-      <Section id="manufacturing" title="Manufacturing">
-        A dynamic apparel production unit specializing in short-order
-        quantities.
-      </Section>
-
-      <Section id="training" title="Training Center" bg="bg-gray-50">
-        Placeholder for training initiatives to empower talent.
-      </Section>
-
-      <Testimonials />
-      <Contact />
       <Footer />
     </main>
   );
