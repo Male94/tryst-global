@@ -96,10 +96,17 @@ export default function SolutionsOffered() {
                   <motion.div
                     className="absolute bottom-0 left-0 right-0 bg-[#4a4a3d] bg-opacity-90"
                     initial={{
-                      height: "25%",
+                      height: isMobile ? "20%" : "25%", // collapsed height
                     }}
                     animate={{
-                      height: activeIndex === index ? "50%" : "25%",
+                      height:
+                        activeIndex === index
+                          ? isMobile
+                            ? "70%" // expand more on mobile
+                            : "50%" // normal expand on desktop
+                          : isMobile
+                          ? "20%"
+                          : "25%",
                     }}
                     transition={{ duration: 0.3 }}
                   >

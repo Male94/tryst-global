@@ -20,8 +20,8 @@ export default function OurHandWritings() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 min-h-[600px]">
           <div className="max-sm:hidden md:col-span-4"></div>
           {/* Right Side - Categories with Overlay */}
-          <div className="flex justify-center items-center md:col-span-8 relative p-20 m-1">
-            <div className="relative w-full h-full max-h-[300px] rounded-2xl overflow-hidden">
+          <div className="flex justify-center items-center col-span-1 md:col-span-8 relative p-5 md:p-20 m-1">
+            <div className="relative w-full h-full max-h-[400px] md:max-h-[300px] rounded-2xl overflow-hidden">
               {/* Semi-transparent overlay */}
               <div className="absolute inset-0 bg-white/70"></div>
 
