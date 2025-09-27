@@ -78,7 +78,7 @@ export default function CustomerReviews() {
         </h2>
 
         {/* Container must be relative with fixed height */}
-        <div className="relative w-full min-h-[280px]">
+        <div className="relative w-full min-h-[400px]">
           <AnimatePresence custom={direction}>
             <motion.div
               key={currentIndex}
