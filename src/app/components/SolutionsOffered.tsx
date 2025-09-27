@@ -101,9 +101,7 @@ export default function SolutionsOffered() {
                     animate={{
                       height:
                         activeIndex === index
-                          ? isMobile
-                            ? "70%" // expand more on mobile
-                            : "50%" // normal expand on desktop
+                          ? "70%"
                           : isMobile
                           ? "20%"
                           : "25%",
