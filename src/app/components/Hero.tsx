@@ -30,11 +30,9 @@ export default function HeroSection() {
           variants={item}
           className="text-8xl md:text-9xl font-extralight ramillas text-black leading-tight"
         >
-          <div className="flex flex-col gap-0">
-            <span className="">Tryst</span>
-            <span className="block relative left:20 md:left-30 -mt-5 md:-mt-10">
-              Global
-            </span>
+          <div className="flex flex-col gap-0 w-[600px]">
+            <span className="text-center">Tryst</span>
+            <span className="block -mt-5 md:-mt-10 text-end">Global</span>
           </div>
         </motion.h1>
 
