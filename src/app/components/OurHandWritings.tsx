@@ -33,56 +33,47 @@ export default function OurHandWritings() {
               </div>
 
               {/* Text Content Grid */}
-              <div className="absolute inset-0 grid grid-cols-2 grid-rows-2">
+              <div className="absolute inset-0 grid grid-cols-2 grid-rows-2 items-stretch">
                 {/* Top Left - Swim Wear & Intimates */}
                 <div className="flex flex-col justify-center items-end p-10 text-end">
-                  <p className="text-sm text-gray-700 mb-4 leading-relaxed">
-                    Wired & non wired bra,
-                    <br />
-                    Panties & shorts, Body suites,
-                    <br />
-                    cover-ups, Smoked bra.
+                  <p className="text-sm text-gray-700 mb-4 leading-relaxed min-h-[4.5rem]">
+                    Wired & non wired bra,<br />
+                    Panties & shorts, Body suites,<br />
+                    Cover-ups, Smoked bra
                   </p>
                   <h3 className="text-sm md:text-lg font-bold text-gray-900 uppercase tracking-wide">
-                    SWIM WEAR & INTIMATES
+                    Swim Wear & Intimates
                   </h3>
                 </div>
-
                 {/* Top Right - Active Wear */}
                 <div className="flex flex-col justify-center items-start p-10 text-start">
-                  <p className="text-sm text-gray-700 mb-4 leading-relaxed">
-                    Sport bra,
-                    <br />
+                  <p className="text-sm text-gray-700 mb-4 leading-relaxed min-h-[4.5rem]">
+                    Sport bra,<br />
                     Leggings
                   </p>
                   <h3 className="text-sm md:text-lg font-bold text-gray-900 uppercase tracking-wide">
-                    ACTIVE WEAR
+                    Active Wear
                   </h3>
                 </div>
-
                 {/* Bottom Left - Casual Wear */}
                 <div className="flex flex-col justify-center items-end p-10 text-end">
-                  <p className="text-sm text-gray-700 mb-4 leading-relaxed">
-                    Ladies Blouse
-                    <br />
+                  <p className="text-sm text-gray-700 mb-4 leading-relaxed min-h-[4.5rem]">
+                    Ladies Blouse,<br />
                     T-shirts and pants
                   </p>
                   <h3 className="text-sm md:text-lg font-bold text-gray-900 uppercase tracking-wide">
-                    CASUAL WEAR
+                    Casual Wear
                   </h3>
                 </div>
-
                 {/* Bottom Right - Lounge Wear */}
                 <div className="flex flex-col justify-center items-start p-10 text-start">
-                  <p className="text-sm text-gray-700 mb-4 leading-relaxed">
-                    Satin sleep shirts, Cozy
-                    <br />
-                    jump suites & Tops,
-                    <br />
+                  <p className="text-sm text-gray-700 mb-4 leading-relaxed min-h-[4.5rem]">
+                    Satin sleep shirts, Cozy<br />
+                    jump suites & Tops,<br />
                     Fleece hoodie
                   </p>
                   <h3 className="text-sm md:text-lg font-bold text-gray-900 uppercase tracking-wide">
-                    LOUNGE WEAR
+                    Lounge Wear
                   </h3>
                 </div>
               </div>

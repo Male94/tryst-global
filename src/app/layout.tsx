@@ -5,7 +5,7 @@ import { Fraunces } from "next/font/google";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
-  weight: ["400", "700"], // normal weights
+  weight: ["100", "400", "700"], // normal weights
   style: ["normal", "italic"], // include italic if available
   display: "swap",
   variable: "--font-fraunces",

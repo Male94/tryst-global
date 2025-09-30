@@ -94,7 +94,7 @@ export default function SolutionsOffered() {
                 {/* Animated Overlay */}
                 <div className="absolute inset-0 w-full h-full">
                   <motion.div
-                    className="absolute bottom-0 left-0 right-0 bg-[#4a4a3d] bg-opacity-90"
+                    className="absolute bottom-0 left-0 right-0 bg-[#4a4a3d]/70 bg-opacity-90"
                     initial={{
                       height: isMobile ? "20%" : "25%", // collapsed height
                     }}

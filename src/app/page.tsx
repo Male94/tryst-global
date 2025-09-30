@@ -12,6 +12,7 @@ import OurHandWritings from "./components/OurHandWritings";
 import CustomerReviews from "./components/CustomerReviews";
 import ConnectWithUs from "./components/ConnectWithUs";
 import CustomerLogos from "./components/CustomerLogos";
+import QualityApproach from "./components/QualityApproach";
 
 export default function HomePage() {
   return (
@@ -30,7 +31,8 @@ export default function HomePage() {
 
       <CustomerLogos />
 
-      <ConnectWithUs />
+      {/* <QualityApproach /> */}
+      {/* <ConnectWithUs /> */}
 
       <Footer />
     </main>

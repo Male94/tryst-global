@@ -1,0 +1,50 @@
+"use client";
+
+import Image from "next/image";
+
+export default function QualityApproach() {
+  const steps = [
+    "Understanding Your Vision",
+    "Sourcing the Finest Materials",
+    "Custom Design & Development",
+    "Crafting with Precision",
+    "Quality Control & Testing",
+  ];
+
+  return (
+    <section className="py-12 px-6 md:px-12 bg-[#f9f8f6]">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        {/* Left Image */}
+        <div className="relative w-full h-[400px] md:h-[500px]">
+          <Image
+            src="/images/quality-approach.jpg" // put your screenshot image here
+            alt="Our approach to textiles"
+            fill
+            className="object-cover rounded-lg shadow-md"
+          />
+        </div>
+
+        {/* Right Content */}
+        <div>
+          <h2 className="text-3xl md:text-4xl font-semibold text-brown-800 mb-8">
+            Our Approach to Quality Textiles
+          </h2>
+
+          <ul className="space-y-5">
+            {steps.map((step, i) => (
+              <li
+                key={i}
+                className="flex items-start text-lg text-gray-800 font-light"
+              >
+                <span className="text-brown-700 font-semibold mr-4 w-6">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span>{step}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}

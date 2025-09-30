@@ -1,57 +1,85 @@
-export default function Footer() {
-  const navigationItems = [
-    { label: "HOME", href: "/" },
-    { label: "PRODUCTS", href: "/products" },
-    { label: "ABOUT US", href: "/about" },
-    { label: "CONTACT US", href: "/contact" },
-    { label: "GLOBAL SOURCING", href: "/global-sourcing" },
-    { label: "SAMPLE DEVELOPMENT", href: "/sample-development" },
-    { label: "MANUFACTURING", href: "/manufacturing" },
-    { label: "PRIVATE LABELING & BRANDING", href: "/private-labeling" },
-    { label: "TRAINING & DEVELOPMENT", href: "/training" },
-    { label: "TEXTILE CONSULTING", href: "/textile-consulting" },
-  ];
+import { MapPin, Mail, Phone } from "lucide-react";
+import Link from "next/link";
 
+export default function Footer() {
   return (
-    <footer className="bg-amber-800 text-white py-12 px-6">
+    <footer className="bg-[#7c6537] text-white py-10 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-          {/* Logo and Copyright */}
-          <div className="space-y-4">
-            <div className="flex-shrink-0">
-              <h2 className="text-4xl font-light leading-tight ramillas">
-                <div className="flex flex-col">
-                  <span>Tryst</span>
-                  <span className="-mt-2">Global</span>
-                </div>
-              </h2>
-            </div>
-            <p className="text-sm text-amber-200/80">
-              © {new Date().getFullYear()} Tryst Global. All rights reserved.
-            </p>
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <h2 className="text-4xl font-light leading-tight">
+              <div className="flex flex-col ramillas w-[130px] text-black">
+                <span className="self-start">Tryst</span>
+                <span className="self-end -mt-2">Global</span>
+              </div>
+            </h2>
           </div>
 
-          {/* Navigation Links */}
-          <nav className="col-span-1 md:col-span-2">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {navigationItems.map((item, index) => (
-                <a
-                  key={index}
-                  href={item.href}
-                  className="text-sm font-light uppercase tracking-wide hover:text-amber-200 transition-colors duration-200 whitespace-nowrap ramillas"
-                >
-                  {item.label}
-                </a>
-              ))}
+          {/* Navigation Links - Left Column */}
+          <div className="flex gap-10 col-span-2">
+            <div className="flex flex-col space-y-2 ramillas">
+              <Link
+                href="/"
+                className="text-sm font-light uppercase tracking-wide hover:text-amber-200 transition-colors"
+              >
+                HOME
+              </Link>
+              <Link
+                href="/products"
+                className="text-sm font-light uppercase tracking-wide hover:text-amber-200 transition-colors"
+              >
+                PRODUCTS
+              </Link>
+              <Link
+                href="/services"
+                className="text-sm font-light uppercase tracking-wide hover:text-amber-200 transition-colors"
+              >
+                SERVICES
+              </Link>
             </div>
-          </nav>
+
+            {/* Navigation Links - Right Column */}
+            <div className="flex flex-col space-y-2 ramillas">
+              <Link
+                href="/about"
+                className="text-sm font-light uppercase tracking-wide hover:text-amber-200 transition-colors"
+              >
+                ABOUT US
+              </Link>
+              <Link
+                href="/contact"
+                className="text-sm font-light uppercase tracking-wide hover:text-amber-200 transition-colors"
+              >
+                CONTACT US
+              </Link>
+            </div>
+          </div>
+
+          {/* Contact Information */}
+          <div className="flex flex-col space-y-3">
+            <div className="flex items-center space-x-2">
+              <MapPin className="w-4 h-4" />
+              <span className="text-sm">
+                {`No 121 St.Joseph's road, Kanuwana, Jaela.`}
+              </span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Mail className="w-4 h-4" />
+              <span className="text-sm">MarketingSL@trystglobal.com</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Phone className="w-4 h-4" />
+              <span className="text-sm">+94 77 975 7096</span>
+            </div>
+          </div>
         </div>
 
         {/* Social Media Icons */}
-        <div className="flex justify-center space-x-6 mt-12 pt-8 border-t border-amber-700/30">
+        <div className="flex space-x-3 mt-10 flex justify-end">
           <a
             href="#"
-            className="w-10 h-10 bg-amber-700 rounded-full flex items-center justify-center hover:bg-amber-600 transition-colors"
+            className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors"
             aria-label="Facebook"
           >
             <svg
@@ -59,12 +87,12 @@ export default function Footer() {
               fill="currentColor"
               viewBox="0 0 24 24"
             >
-              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              <path d="M24 12.073c0-6.627-5.373-12-12-12S0 5.446 0 12.073c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
             </svg>
           </a>
           <a
             href="#"
-            className="w-10 h-10 bg-amber-700 rounded-full flex items-center justify-center hover:bg-amber-600 transition-colors"
+            className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors"
             aria-label="LinkedIn"
           >
             <svg
@@ -72,12 +100,12 @@ export default function Footer() {
               fill="currentColor"
               viewBox="0 0 24 24"
             >
-              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z" />
             </svg>
           </a>
           <a
             href="#"
-            className="w-10 h-10 bg-amber-700 rounded-full flex items-center justify-center hover:bg-amber-600 transition-colors"
+            className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors"
             aria-label="Instagram"
           >
             <svg

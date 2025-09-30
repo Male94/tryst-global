@@ -1,22 +1,14 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ClothingSection() {
   return (
     <section className="min-h-screen flex flex-col lg:flex-row">
       {/* Left Panel */}
-      <div className="flex-1 bg-white flex flex-col justify-center items-center md:p-8 lg:p-16">
-        <div className="h-[500px] w-full  md:w-full md:h-full relative">
-          <Image
-            src="/images/Swim (1).png"
-            alt="Modern chair with clothing"
-            fill
-            className="w-full h-[500px] md:h-auto object-cover"
-            priority
-          />
-          <h1 className="relative md:relative top-5 left-5 ramillas text-4xl lg:text-6xl font-light text-gray-900 leading-tight mb-8 lg:mb-16">
-            {`"Clothing that fits your life"`}
-          </h1>
-        </div>
+      <div className="relative bg-[url('/images/Swim.png')] bg-cover bg-center flex-1 md:p-4 lg:p-8 md:h-[800px] w-full">
+        <h1 className="absolute md:relative top-3 left-3 ramillas text-4xl lg:text-6xl font-light text-gray-900 leading-tight mb-8 lg:mb-16">
+          {`“Clothing that fits your life”`}
+        </h1>
       </div>
 
       {/* Right Panel */}
@@ -27,6 +19,15 @@ export default function ClothingSection() {
             quantities, where creativity meets agility. By joining forces with a
             handpicked network of industry professionals
           </p>
+
+          <div className="mt-8 flex justify-center">
+            <Link
+              href="/about"
+              className="px-8 py-3 border-2 border-white text-white font-light uppercase tracking-wide rounded-full hover:bg-white hover:text-amber-900 transition-colors duration-300 ramillas"
+            >
+              ABOUT US
+            </Link>
+          </div>
         </div>
       </div>
     </section>

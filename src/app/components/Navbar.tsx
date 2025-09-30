@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Menu, X } from "lucide-react"; // icons
+import { Menu, X } from "lucide-react";
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,11 +11,25 @@ export default function Sidebar() {
   const links = [
     { href: "#home", label: "Home" },
     { href: "#products", label: "Products" },
-    { href: "#sourcing", label: "Global Sourcing" },
-    { href: "#development", label: "Development Center" },
-    { href: "#training", label: "Training Center" },
+    {
+      label: "Services",
+      children: [
+        { href: "#sourcing", label: "Global Sourcing" },
+        { href: "#development", label: "Design and Development" },
+        { href: "#manufacturing", label: "Manufacturing" },
+        { href: "#training", label: "Training & Development" },
+        { href: "#consulting", label: "Textile Consulting" },
+        { href: "#branding", label: "Private Labeling & Branding" },
+      ],
+    },
+    {
+      label: "About Us",
+      children: [
+        { href: "#story", label: "Our Story" },
+        { href: "#team", label: "Our Team" },
+      ],
+    },
     { href: "#contact", label: "Contact Us" },
-    { href: "#about", label: "About Us" },
   ];
 
   return (
@@ -24,52 +38,73 @@ export default function Sidebar() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed top-4 left-4 z-50 p-2 rounded-md bg-gray-200 hover:bg-gray-300"
+          className="fixed top-4 left-4 z-50 p-2 rounded-md bg-[#d8ccb5]/70"
         >
           <Menu size={24} />
         </button>
       )}
 
-      {/* Sidebar (Animated) */}
+      {/* Sidebar */}
       <motion.aside
         initial={{ x: "-100%" }}
         animate={{ x: isOpen ? 0 : "-100%" }}
-        transition={{ type: "tween", duration: 0.3 }}
-        className="fixed top-0 left-0 h-screen w-64 bg-white shadow-lg z-40 flex flex-col"
+        transition={{ type: "tween", duration: 0.4 }}
+        className="fixed top-0 left-0 h-screen w-72 h-auto -              
++             bg-gradient-to-b from-[#d8ccb5]/80 to-[#e7dfcf]/80 
+              shadow-lg z-40 flex flex-col 
+              rounded-r-2xl backdrop-blur-sm"
       >
-        {/* Header with close button */}
-        <div className="flex items-center justify-between px-6 py-4 border-b">
-          <Link href="/" className="text-2xl font-bold text-blue-700">
+        {/* Header */}
+        <div className="flex items-center justify-between px-6 py-4">
+          <Link href="/" className="text-xl font-bold ramillas tracking-wide">
             Tryst Global
           </Link>
           <button
             onClick={() => setIsOpen(false)}
-            className="p-2 rounded-md hover:bg-gray-100"
+            className="p-2 rounded-md hover:bg-white/20"
           >
             <X size={24} />
           </button>
         </div>
 
-        {/* Nav links */}
-        <nav className="flex flex-col gap-4 mt-6 px-6 font-medium text-gray-700 ramillas uppercase">
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setIsOpen(false)} // closes when clicked
-              className="hover:text-blue-700 transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
+        {/* Links */}
+        <nav className="flex flex-col gap-3 mt-4 px-6 text-gray-800 ramillas text-sm uppercase">
+          {links.map((link, idx) =>
+            link.children ? (
+              <div key={idx} className="flex flex-col gap-2">
+                <span className="font-semibold">{link.label}</span>
+                <div className="flex flex-col gap-2 ml-4 text-gray-700">
+                  {link.children.map((sublink) => (
+                    <Link
+                      key={sublink.href}
+                      href={sublink.href}
+                      onClick={() => setIsOpen(false)}
+                      className="hover:text-black transition-colors"
+                    >
+                      {sublink.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <Link
+                key={idx}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className="hover:text-black transition-colors"
+              >
+                {link.label}
+              </Link>
+            )
+          )}
         </nav>
       </motion.aside>
 
-      {/* Overlay (click to close) */}
+      {/* Overlay */}
       {isOpen && (
         <div
           onClick={() => setIsOpen(false)}
-          className="fixed inset-0 backdrop-blur-xs z-30"
+          className="fixed inset-0 bg-black/30 z-30"
         />
       )}
     </div>

@@ -1,47 +1,74 @@
 "use client";
 
 import { motion } from "framer-motion";
+import type { Variants } from "framer-motion";
 
 const container = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.09, // letters animate one after another
+      delayChildren: 0.3,
     },
   },
 };
 
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 },
+const letter: Variants = {
+  hidden: { opacity: 0, y: 50, filter: "brightness(0.8)" },
+  show: {
+    opacity: 1,
+    y: 0,
+    filter: "brightness(1.3) drop-shadow(0px 5px 10px rgba(0,0,0,0.2))",
+    transition: {
+      type: "spring",
+      stiffness: 80,
+      damping: 18,
+      duration: 0.8,
+    },
+  },
 };
+
+const AnimatedText = ({
+  text,
+  className,
+}: {
+  text: string;
+  className?: string;
+}) => (
+  <motion.span
+    variants={container}
+    initial="hidden"
+    animate="show"
+    className={className}
+  >
+    {text.split("").map((char, i) => (
+      <motion.span key={i} variants={letter} className="inline-block">
+        {char === " " ? "\u00A0" : char}
+      </motion.span>
+    ))}
+  </motion.span>
+);
 
 export default function HeroSection() {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-[url('/images/hero_img.png')] bg-fill md:bg-cover bg-center">
+    <section className="min-h-screen flex items-center justify-center bg-[url('/images/hero_img.png')] bg-cover bg-center">
       <motion.div
-        variants={container}
         initial="hidden"
         animate="show"
-        className="w-full max-w-6xl px-4 flex flex-col justify-center items-center text-center"
+        className="w-full max-w-6xl px-4 flex flex-col justify-center items-center text-center md:text-left"
       >
-        <motion.h1
-          variants={item}
-          className="text-8xl md:text-9xl font-extralight ramillas text-black leading-tight"
-        >
-          <div className="flex flex-col gap-0 w-[600px]">
-            <span className="text-center">Tryst</span>
-            <span className="block -mt-5 md:-mt-10 text-end">Global</span>
+        <h1 className="text-7xl md:text-9xl font-light ramillas text-black leading-tight">
+          <div className="flex flex-col gap-0 items-center md:items-start w-[250px] md:w-[450px]">
+            <AnimatedText text="Tryst" className="self-start" />
+            <AnimatedText text="Global" className="self-end -mt-4 md:-mt-8" />
           </div>
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          variants={item}
-          className="text-3xl mb-6 fraunces italic font-thin"
-        >
-          The Apparel Solution Provider
-        </motion.p>
+        <AnimatedText
+          text="The Apparel Solution Provider"
+          className="text-2xl md:text-3xl fraunces italic font-thin"
+        />
       </motion.div>
     </section>
   );
