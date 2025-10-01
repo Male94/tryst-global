@@ -17,16 +17,16 @@ export default function QualityApproach() {
         {/* Left Image */}
         <div className="relative w-full h-[400px] md:h-[500px]">
           <Image
-            src="/images/quality-approach.jpg" // put your screenshot image here
+            src="/images/home/Copilot_20250929_004516.png" // put your screenshot image here
             alt="Our approach to textiles"
             fill
-            className="object-cover rounded-lg shadow-md"
+            className="object-cover shadow-md"
           />
         </div>
 
         {/* Right Content */}
-        <div>
-          <h2 className="text-3xl md:text-4xl font-semibold text-brown-800 mb-8">
+        <div className="flex flex-col gap-0 items-start h-[400px] md:h-[500px]">
+          <h2 className="text-3xl md:text-5xl font-light text-brown-800 mb-4 ramillas">
             Our Approach to Quality Textiles
           </h2>
 
@@ -34,7 +34,7 @@ export default function QualityApproach() {
             {steps.map((step, i) => (
               <li
                 key={i}
-                className="flex items-start text-lg text-gray-800 font-light"
+                className="flex items-start text-lg md:text-xl text-gray-800 font-light fraunces"
               >
                 <span className="text-brown-700 font-semibold mr-4 w-6">
                   {String(i + 1).padStart(2, "0")}

@@ -17,8 +17,6 @@ import QualityApproach from "./components/QualityApproach";
 export default function HomePage() {
   return (
     <main className="flex flex-col min-h-screen">
-      <SearchField />
-      <Navbar />
       <Hero />
 
       <ClothingSection />
@@ -31,10 +29,8 @@ export default function HomePage() {
 
       <CustomerLogos />
 
-      {/* <QualityApproach /> */}
+      <QualityApproach />
       {/* <ConnectWithUs /> */}
-
-      <Footer />
     </main>
   );
 }
