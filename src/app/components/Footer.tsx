@@ -66,14 +66,14 @@ export default function Footer() {
           {/* Left Side */}
           <p className="mb-3 md:mb-0">
             2025 © All Rights Reserved | Developed by{" "}
-            <a
-              href="https://technowebiz.com"
+            <Link
+              href="https://www.facebook.com/ITservices.webiz?mibextid=ZbWKwL"
               target="_blank"
               rel="noopener noreferrer"
               className="underline hover:text-amber-200"
             >
               TechnoWebiz.com
-            </a>
+            </Link>
           </p>
 
           {/* Right Side - Social Icons */}
