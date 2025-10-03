@@ -37,7 +37,7 @@ export default function SocialMediaIcons() {
   ];
 
   return (
-    <div className="fixed bottom-1/10 right-4 flex flex-col gap-4 z-50">
+    <div className="fixed top-1/2 sm:bottom-1/10 right-4 flex flex-col gap-4 z-50">
       {icons.map((item, index) => (
         <a
           key={index}

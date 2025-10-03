@@ -40,7 +40,7 @@ export default function OurHandWritings() {
           priority
         />
         {/* Section Title */}
-        <h2 className="absolute top-0 left-[15%] text-5xl lg:text-6xl font-light italic text-gray-900 ramillas">
+        <h2 className="relative text-center md:absolute top-0 sm:left-[15%] text-5xl lg:text-6xl font-light italic text-gray-900 ramillas">
           Our Hand Writings
         </h2>
 
@@ -50,17 +50,37 @@ export default function OurHandWritings() {
 
           {/* Categories */}
           <div className="flex justify-center items-center col-span-1 md:col-span-8 relative p-5 md:p-20">
-            <div className="relative w-full h-full max-h-[400px] md:max-h-[300px] rounded-2xl overflow-hidden">
+            <div className="relative w-full h-full max-h-[500px] md:max-h-[350px] rounded-2xl overflow-hidden">
               <div className="absolute inset-0 bg-white/70"></div>
 
               {/* Divider lines */}
-              <div className="absolute inset-0">
+              <div className="absolute inset-0 hidden sm:block">
                 <div className="absolute top-0 bottom-0 left-1/2 border-l border-yellow-400"></div>
                 <div className="absolute left-0 right-0 top-1/2 border-t border-yellow-400"></div>
               </div>
 
               {/* Categories Grid */}
-              <div className="absolute inset-0 grid grid-cols-2 grid-rows-2">
+              {/* Mobile Layout (Cards) */}
+              <div className="grid grid-cols-1 gap-4 sm:hidden">
+                {categories.map((cat, idx) => (
+                  <Link
+                    key={idx}
+                    href={`/products?category=${cat.slug}`}
+                    className="flex flex-col p-6 bg-white shadow-md rounded-lg group transition"
+                  >
+                    <p className="text-sm text-black  mb-4 leading-relaxed group-hover:text-gray-900 transition">
+                      {cat.desc}
+                    </p>
+                    <h3 className="text-sm md:text-lg font-bold text-gray-900 uppercase tracking-wide relative">
+                      {cat.name}
+                      <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
+                    </h3>
+                  </Link>
+                ))}
+              </div>
+
+              {/* Tablet & Desktop Layout (2x2 Grid) */}
+              <div className="hidden sm:grid absolute inset-0 grid-cols-2 grid-rows-2">
                 {categories.map((cat, idx) => (
                   <Link
                     key={idx}
