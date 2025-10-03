@@ -9,17 +9,17 @@ export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const links = [
-    { href: "#home", label: "Home" },
-    { href: "#products", label: "Products" },
+    { href: "home", label: "Home" },
+    { href: "products", label: "Products" },
     {
       label: "Services",
       children: [
-        { href: "#sourcing", label: "Global Sourcing" },
-        { href: "#development", label: "Design and Development" },
-        { href: "#manufacturing", label: "Manufacturing" },
-        { href: "#training", label: "Training & Development" },
-        { href: "#consulting", label: "Textile Consulting" },
-        { href: "#branding", label: "Private Labeling & Branding" },
+        { href: "sourcing", label: "Global Sourcing" },
+        { href: "development", label: "Design and Development" },
+        { href: "manufacturing", label: "Manufacturing" },
+        { href: "training", label: "Training & Development" },
+        { href: "consulting", label: "Textile Consulting" },
+        { href: "branding", label: "Private Labeling & Branding" },
       ],
     },
     {
