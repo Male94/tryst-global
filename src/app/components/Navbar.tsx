@@ -14,12 +14,12 @@ export default function Sidebar() {
     {
       label: "Services",
       children: [
-        { href: "sourcing", label: "Global Sourcing" },
-        { href: "development", label: "Design and Development" },
-        { href: "manufacturing", label: "Manufacturing" },
-        { href: "training", label: "Training & Development" },
-        { href: "consulting", label: "Textile Consulting" },
-        { href: "branding", label: "Private Labeling & Branding" },
+        { href: "services", label: "Global Sourcing" },
+        { href: "services", label: "Design and Development" },
+        { href: "services", label: "Manufacturing" },
+        { href: "services", label: "Training & Development" },
+        { href: "services", label: "Textile Consulting" },
+        { href: "services", label: "Private Labeling & Branding" },
       ],
     },
     {
@@ -80,6 +80,7 @@ export default function Sidebar() {
                       href={sublink.href}
                       onClick={() => setIsOpen(false)}
                       className="hover:text-black transition-colors"
+                      id={sublink.label}
                     >
                       {sublink.label}
                     </Link>
