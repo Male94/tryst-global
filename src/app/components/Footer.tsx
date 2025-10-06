@@ -46,7 +46,10 @@ export default function Footer() {
 
             {/* Services with sub-links */}
             <div>
-              <span className="text-sm font-semibold">SERVICES</span>
+              <Link href="/services" className="text-sm hover:text-amber-200">
+                SERVICES
+              </Link>
+              {/* <span className="text-sm font-semibold">SERVICES</span>
               <div className="flex flex-col ml-4 mt-2 space-y-1">
                 {servicesLinks.map((s) => (
                   <Link
@@ -57,7 +60,7 @@ export default function Footer() {
                     {s.label}
                   </Link>
                 ))}
-              </div>
+              </div> */}
             </div>
           </div>
 

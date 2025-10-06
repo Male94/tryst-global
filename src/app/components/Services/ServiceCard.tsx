@@ -25,11 +25,11 @@ export default function ServiceCard({
     <section
       className={`flex flex-col md:flex-row ${
         reverse ? "md:flex-row-reverse" : ""
-      } w-full min-h-[400px]`}
+      } w-full min-h-[600px]`}
     >
       {/* Text Section */}
       <div
-        className={`flex-1 ${textBg} text-white p-10 flex flex-col justify-center`}
+        className={`flex-1 ${textBg} text-white p-10 flex flex-col justify-start`}
       >
         <h2 className="text-lg md:text-xl font-semibold uppercase mb-4 border-b border-white/40 pb-2 ramillas">
           {title}

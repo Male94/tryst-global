@@ -25,8 +25,8 @@ export default function QualityApproach() {
         </div>
 
         {/* Right Content */}
-        <div className="flex flex-col gap-0 items-start h-[400px] md:h-[500px]">
-          <h2 className="text-3xl md:text-5xl font-light text-brown-800 mb-4 ramillas">
+        <div className="flex flex-col gap-0 items-start h-[400px] md:h-[500px] w-full">
+          <h2 className="text-3xl md:text-7xl font-light text-[#884438] mb-4 ramillas">
             Our Approach to Quality Textiles
           </h2>
 
@@ -34,12 +34,12 @@ export default function QualityApproach() {
             {steps.map((step, i) => (
               <li
                 key={i}
-                className="flex items-start text-lg md:text-xl text-gray-800 font-light fraunces"
+                className="flex items-start text-lg md:text-4xl text-[#59493b] font-light fraunces"
               >
                 <span className="text-brown-700 font-semibold mr-4 w-6">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span>{step}</span>
+                <span className="ml-5">{step}</span>
               </li>
             ))}
           </ul>

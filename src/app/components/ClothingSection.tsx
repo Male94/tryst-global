@@ -12,12 +12,16 @@ export default function ClothingSection() {
       </div>
 
       {/* Right Panel */}
-      <div className="flex-1 bg-amber-900 flex flex-col justify-center items-center p-8 lg:p-16">
+      <div className="flex-1 bg-[#65460a] flex flex-col justify-center items-center p-8 lg:p-16">
         <div className="max-w-lg w-full">
-          <p className="text-xl lg:text-4xl ramillas text-white font-light leading-relaxed text-center">
-            We are a dynamic apparel solution provider focused on short-order
-            quantities, where creativity meets agility. By joining forces with a
-            handpicked network of industry professionals
+          <p className="text-xl lg:text-2xl ramillas text-white font-light leading-relaxed text-center">
+            {`We combine flexible production, expert sourcing, and highly skilled
+            operators with end-to-end support and reliable delivery. Whether
+            you're testing a new line or scaling up,`}
+          </p>
+          <p className="text-xl lg:text-2xl ramillas text-white font-light leading-relaxed text-center mt-2">
+            we tailor every step to your brand’s needs, ensuring quality,
+            transparency, and agility throughout.{" "}
           </p>
 
           <div className="mt-8 flex justify-center">
