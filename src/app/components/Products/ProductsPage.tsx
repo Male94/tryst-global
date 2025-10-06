@@ -1,16 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 import ProductCard from "@/app/components/Products/ProductCard";
 
 export default function ProductsPage() {
-  const categories = [
-    "Swim Wear",
-    "Intimates",
-    "Casual Wear",
-    "Active Wear",
-    "Lounge Wear",
-  ];
+  const categories = useMemo(
+    () => [
+      "Swim Wear",
+      "Intimates",
+      "Casual Wear",
+      "Active Wear",
+      "Lounge Wear",
+    ],
+    []
+  );
 
   const products = [
     {
@@ -184,37 +188,74 @@ export default function ProductsPage() {
   ];
 
   const [activeCategory, setActiveCategory] = useState("All");
+  const categoryRefs = useRef({});
+  const searchParams = useSearchParams();
+  const router = useRouter();
 
-  const filteredProducts =
-    activeCategory === "All"
-      ? products
-      : products.filter((p) => p.category === activeCategory);
+  // Detect ?category= parameter on first load
+  useEffect(() => {
+    const param = searchParams.get("category");
+    if (param) {
+      const match = categories.find(
+        (cat) => cat.toLowerCase().replace(/\s+/g, "-") === param.toLowerCase()
+      );
+      if (match) {
+        setActiveCategory(match);
+        setTimeout(() => {
+          categoryRefs.current[match]?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }, 200);
+      }
+    }
+  }, [searchParams, categories]);
+
+  // Handle tab clicks
+  const handleCategoryClick = (cat) => {
+    setActiveCategory(cat);
+    router.replace(
+      `/products${
+        cat === "All"
+          ? ""
+          : `?category=${cat.toLowerCase().replace(/\s+/g, "-")}`
+      }`
+    );
+    setTimeout(() => {
+      if (cat !== "All") {
+        categoryRefs.current[cat]?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }, 100);
+  };
 
   // Sort products by order
-  const sortedProducts = [...filteredProducts].sort(
-    (a, b) => a.order - b.order
-  );
+  const sortByOrder = (arr) => [...arr].sort((a, b) => a.order - b.order);
 
   return (
-    <section className="max-w-full mx-auto px-6 py-12">
+    <section className="max-w-full mx-auto px-6 py-12 scroll-smooth">
       <h2 className="text-6xl italic font-serif mb-8 ramillas">Products</h2>
 
       {/* Tabs */}
-      <div className="flex gap-4 flex-wrap">
+      <div className="flex gap-4 flex-wrap mb-10">
         <button
-          onClick={() => setActiveCategory("All")}
+          onClick={() => handleCategoryClick("All")}
           className={`px-6 py-2 rounded-full transition font-bold ${
-            activeCategory === "All" ? "bg-[#f6f4f1]" : " hover:bg-gray-200"
+            activeCategory === "All" ? "bg-[#f6f4f1]" : "hover:bg-gray-200"
           }`}
         >
           ALL
         </button>
-        {categories.map((cat, idx) => (
+        {categories.map((cat) => (
           <button
-            key={idx}
-            onClick={() => setActiveCategory(cat)}
+            key={cat}
+            onClick={() => handleCategoryClick(cat)}
             className={`px-6 py-2 rounded-full transition font-bold ${
-              activeCategory === cat ? "bg-[#f6f4f1]" : " hover:bg-gray-200"
+              activeCategory === cat ? "bg-[#f6f4f1]" : "hover:bg-gray-200"
             }`}
           >
             {cat.toUpperCase()}
@@ -222,12 +263,23 @@ export default function ProductsPage() {
         ))}
       </div>
 
-      {/* Product Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 bg-[#f6f4f1] p-5 rounded-2xl">
-        {sortedProducts.map((p, idx) => (
-          <ProductCard key={p.order} {...p} />
-        ))}
-      </div>
+      {/* Category Sections */}
+      {categories.map((cat) => (
+        <div
+          key={cat}
+          ref={(el) => (categoryRefs.current[cat] = el)}
+          className="mb-16"
+        >
+          <h3 className="text-3xl font-semibold mb-6">{cat}</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 bg-[#f6f4f1] p-5 rounded-2xl">
+            {sortByOrder(products.filter((p) => p.category === cat)).map(
+              (p) => (
+                <ProductCard key={p.order} {...p} />
+              )
+            )}
+          </div>
+        </div>
+      ))}
     </section>
   );
 }

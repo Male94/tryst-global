@@ -17,11 +17,11 @@ export default function ServicesPage() {
         "Sample Making",
       ],
       image: "/images/home/Copilot_20250929_101823.png",
-      textBg: "bg-[#8b949d]", // matches your screenshot
-      imageBg: "bg-[#b8bb91]", // matches your screenshot
+      textBg: "bg-[#8b949d]",
+      imageBg: "bg-[#b8bb91]",
     },
     {
-      title: "Sourcing",
+      title: "Global Sourcing",
       description:
         "At Tryst Global, we believe that great fashion starts with exceptional materials. That’s why we collaborate with trusted suppliers from Vietnam, India, and China regions, renowned for their textile innovation and craftsmanship.",
       points: [
@@ -30,88 +30,60 @@ export default function ServicesPage() {
         "Bra pad developments",
         "Bra wire developments",
       ],
-      image: "/images/home/Copilot_20250929_120427.png", // replace with your uploaded image
-      textBg: "bg-[#aba08f]", // matches your screenshot
-      imageBg: "bg-[#b8bb91]", // matches your screenshot
+      image: "/images/home/Copilot_20250929_120427.png",
+      textBg: "bg-[#aba08f]",
+      imageBg: "bg-[#b8bb91]",
     },
     {
-      title: "MANUFACTURING",
-      description: `We are a dynamic apparel production unit
-specializing in short-order quantities
-with high quality and speed.
-`,
+      title: "Manufacturing",
+      description: `We are a dynamic apparel production unit specializing in short-order quantities with high quality and speed.`,
       points: [
         "Flexible on Short-Order Quantities.",
         "Maintain high-quality.",
-        `Special Seams and stitches
-(Smocking | Crochet stitch | Pick stitch)`,
+        "Special Seams and stitches (Smocking | Crochet stitch | Pick stitch)",
       ],
-      image: "/images/home/Copilot_20250929_120427.png", // replace with your uploaded image
-      textBg: "bg-[#8b949d]", // matches your screenshot
-      imageBg: "bg-[#ede2d7]", // matches your screenshot
+      image: "/images/home/Copilot_20250929_120427.png",
+      textBg: "bg-[#8b949d]",
+      imageBg: "bg-[#ede2d7]",
     },
     {
-      title: "PRIVATE LABELING & BRANDING",
-      description: `Are you a designer or entrepreneur ready to
-launch your own fashion brand? Whether
-you're building your first collection or
-scaling up your label, our Sri Lanka-based
-manufacturing unit is here to bring your
-vision to life—with precision, speed, and
-sustainability.
-`,
+      title: "Private Labeling & Branding",
+      description: `Are you a designer or entrepreneur ready to launch your own fashion brand? Whether you're building your first collection or scaling up your label, our Sri Lanka-based manufacturing unit is here to bring your vision to life—with precision, speed, and sustainability.`,
       points: [
         "Tech-Driven Development.",
-        `Brand Protection: Your creative assets
-are safe with us
-`,
+        "Brand Protection: Your creative assets are safe with us",
       ],
-      image: "/images/home/Copilot_20250929_120427.png", // replace with your uploaded image
-      textBg: "bg-[#aba08f]", // matches your screenshot
-      imageBg: "bg-[#ede2d7]", // matches your screenshot
+      image: "/images/home/Copilot_20250929_120427.png",
+      textBg: "bg-[#aba08f]",
+      imageBg: "bg-[#ede2d7]",
     },
     {
-      title: "TRAINING & DEVELOPMENT",
-      description: `Our training center provides individual
-and group trainings for students and
-corporate employees to enhance their
-practical apparel knowledge
-`,
+      title: "Training & Development",
+      description: `Our training center provides individual and group trainings for students and corporate employees to enhance their practical apparel knowledge.`,
       points: [
-        `Pattern Training
-Gerber | Opti-tex | Lectra`,
-        `3D Software Training
-CLO | TUKA | Browswear
-`,
+        "Pattern Training (Gerber | Opti-tex | Lectra)",
+        "3D Software Training (CLO | TUKA | Browswear)",
       ],
-      image: "/images/home/Copilot_20250929_120427.png", // replace with your uploaded image
-      textBg: "bg-[#8b949d]", // matches your screenshot
-      imageBg: "bg-[#ede2d7]", // matches your screenshot
+      image: "/images/home/Copilot_20250929_120427.png",
+      textBg: "bg-[#8b949d]",
+      imageBg: "bg-[#ede2d7]",
     },
     {
-      title: "TEXTILE CONSULTING",
-      description: `At Tryst Global, we don’t just manufacture
-garments, we empower fashion businesses
-with expert textile consulting. With decades
-of hands-on experience and a deep network
-of trusted suppliers, we guide you from
-concept to creation with ensuring your
-production is streamlined and cost-effective
-`,
+      title: "Textile Consulting",
+      description: `At Tryst Global, we don’t just manufacture garments — we empower fashion businesses with expert textile consulting.`,
       points: [
-        `Process utilization`,
-        `Cost optimization`,
-        `System implementation`,
+        "Process utilization",
+        "Cost optimization",
+        "System implementation",
       ],
-      image: "/images/home/Copilot_20250929_120427.png", // replace with your uploaded image
-      textBg: "bg-[#aba08f]", // matches your screenshot
-      imageBg: "bg-[#ede2d7]", // matches your screenshot
+      image: "/images/home/Copilot_20250929_120427.png",
+      textBg: "bg-[#aba08f]",
+      imageBg: "bg-[#ede2d7]",
     },
   ];
 
   return (
-    <main className="w-full">
-      {/* Hero Section */}
+    <main className="w-full scroll-smooth">
       <section className="bg-gray-100 py-20 text-center">
         <h1 className="text-4xl md:text-5xl font-serif italic mb-6">
           Our Services
@@ -122,10 +94,17 @@ production is streamlined and cost-effective
         </p>
       </section>
 
-      {/* Service Cards */}
-      {services.map((service, idx) => (
-        <ServiceCard key={idx} {...service} />
-      ))}
+      {services.map((service, idx) => {
+        const sectionId = service.title
+          .toLowerCase()
+          .replace(/\s+/g, "-")
+          .replace(/&/g, "and");
+        return (
+          <section id={sectionId} key={idx}>
+            <ServiceCard {...service} />
+          </section>
+        );
+      })}
     </main>
   );
 }

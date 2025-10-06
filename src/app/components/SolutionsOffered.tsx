@@ -111,7 +111,7 @@ export default function SolutionsOffered() {
                     {/* Content Container */}
                     <div className="p-6">
                       {/* Title - Always visible */}
-                      <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">
+                      <h3 className="text-xl lg:text-3xl font-bold text-white mb-4">
                         {solution.title}
                       </h3>
 
