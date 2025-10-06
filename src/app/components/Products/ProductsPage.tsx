@@ -4,6 +4,15 @@ import { useState, useEffect, useRef, useMemo } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import ProductCard from "@/app/components/Products/ProductCard";
 
+type Product = {
+  name: string;
+  price: number;
+  date: string;
+  images: string[];
+  category: string;
+  order: number;
+};
+
 export default function ProductsPage() {
   const categories = useMemo(
     () => [
@@ -17,22 +26,6 @@ export default function ProductsPage() {
   );
 
   const products = [
-    {
-      name: "2CUP WIRED BRA TOP",
-      price: 1200,
-      date: "October 2025",
-      images: ["/images/products/2CUP WIRED BRA TOP.jpg"],
-      category: "Swim Wear",
-      order: 13,
-    },
-    {
-      name: "CLASSIC ONE PIECE SWIMSUITE",
-      price: 1800,
-      date: "October 2025",
-      images: ["/images/products/CLASSIC ONE PIECE SWIMSUITE.jpg"],
-      category: "Swim Wear",
-      order: 3,
-    },
     {
       name: "CLASSIC PU BRA",
       price: 1000,
@@ -50,12 +43,36 @@ export default function ProductsPage() {
       order: 2,
     },
     {
-      name: "CUTOUT RUFFLE ONE PIECE",
+      name: "CLASSIC ONE PIECE SWIMSUITE",
+      price: 1800,
+      date: "October 2025",
+      images: ["/images/products/CLASSIC ONE PIECE SWIMSUITE.jpg"],
+      category: "Swim Wear",
+      order: 3,
+    },
+    {
+      name: "SIDE CUTOUT ONE PIECE",
+      price: 1700,
+      date: "October 2025",
+      images: ["/images/products/SIDE CUTOUT ONE PIECE.jpg"],
+      category: "Swim Wear",
+      order: 4,
+    },
+    {
+      name: "STRAPPED CUTOUT ONE PIECE",
       price: 2000,
       date: "October 2025",
-      images: ["/images/products/CUTOUT RUFFLE ONE PIECE.jpg"],
+      images: ["/images/products/STRAPPED CUTOUT ONE PIECE.jpg"],
       category: "Swim Wear",
-      order: 10,
+      order: 5,
+    },
+    {
+      name: "STRING CUTOUT ONE PIECE",
+      price: 1900,
+      date: "October 2025",
+      images: ["/images/products/STRING CUTOUT ONE PIECE.jpg"],
+      category: "Swim Wear",
+      order: 6,
     },
     {
       name: "GIRLS 2PC BIKINI",
@@ -82,6 +99,54 @@ export default function ProductsPage() {
       order: 9,
     },
     {
+      name: "CUTOUT RUFFLE ONE PIECE",
+      price: 2000,
+      date: "October 2025",
+      images: ["/images/products/CUTOUT RUFFLE ONE PIECE.jpg"],
+      category: "Swim Wear",
+      order: 10,
+    },
+    {
+      name: "RUFFLE STRAP CUTOUT ONE PIECE",
+      price: 1900,
+      date: "October 2025",
+      images: ["/images/products/RUFFLE STRAP CUTOUT ONE PIECE.jpg"],
+      category: "Swim Wear",
+      order: 11,
+    },
+    {
+      name: "V-NECK RUFFLE ONE PIECE",
+      price: 1800,
+      date: "October 2025",
+      images: ["/images/products/V-NECK RUFFLE ONE PIECE.jpg"],
+      category: "Swim Wear",
+      order: 12,
+    },
+    {
+      name: "2CUP WIRED BRA TOP",
+      price: 1200,
+      date: "October 2025",
+      images: ["/images/products/2CUP WIRED BRA TOP.jpg"],
+      category: "Swim Wear",
+      order: 13,
+    },
+    {
+      name: "MATELASSE WIRED TOP",
+      price: 1600,
+      date: "October 2025",
+      images: ["/images/products/MATELASSE WIRED TOP.jpg"],
+      category: "Swim Wear",
+      order: 14,
+    },
+    {
+      name: "SMOCKED UNDERWIRE BIKINI TOP",
+      price: 1200,
+      date: "October 2025",
+      images: ["/images/products/SMOCKED UNDERWIRE BIKINI TOP.jpg"],
+      category: "Swim Wear",
+      order: 15,
+    },
+    {
       name: "HIGH-LEG CHEEKY BIKINI BOTTOM",
       price: 1300,
       date: "October 2025",
@@ -98,52 +163,12 @@ export default function ProductsPage() {
       order: 17,
     },
     {
-      name: "MATELASSE WIRED TOP",
-      price: 1600,
-      date: "October 2025",
-      images: ["/images/products/MATELASSE WIRED TOP.jpg"],
-      category: "Swim Wear",
-      order: 14,
-    },
-    {
-      name: "RUFFLE STRAP CUTOUT ONE PIECE",
-      price: 1900,
-      date: "October 2025",
-      images: ["/images/products/RUFFLE STRAP CUTOUT ONE PIECE.jpg"],
-      category: "Swim Wear",
-      order: 11,
-    },
-    {
-      name: "SIDE CUTOUT ONE PIECE",
-      price: 1700,
-      date: "October 2025",
-      images: ["/images/products/SIDE CUTOUT ONE PIECE.jpg"],
-      category: "Swim Wear",
-      order: 4,
-    },
-    {
-      name: "SMOCKED UNDERWIRE BIKINI TOP",
-      price: 1200,
-      date: "October 2025",
-      images: ["/images/products/SMOCKED UNDERWIRE BIKINI TOP.jpg"],
-      category: "Swim Wear",
-      order: 15,
-    },
-    {
       name: "SMOCKING BRALETTE",
       price: 1100,
       date: "October 2025",
       images: ["/images/products/SMOCKING BRALETTE.jpg"],
       category: "Swim Wear",
       order: 18,
-    },
-    {
-      name: "STRAPPED CUTOUT ONE PIECE",
-      price: 2000,
-      date: "October 2025",
-      images: ["/images/products/STRAPPED CUTOUT ONE PIECE.jpg"],
-      category: "Swim Wear",
-      order: 5,
     },
     {
       name: "STRAPPING CLASSIC BIKINI BOTTOM",
@@ -169,26 +194,10 @@ export default function ProductsPage() {
       category: "Swim Wear",
       order: 21,
     },
-    {
-      name: "STRING CUTOUT ONE PIECE",
-      price: 1900,
-      date: "October 2025",
-      images: ["/images/products/STRING CUTOUT ONE PIECE.jpg"],
-      category: "Swim Wear",
-      order: 6,
-    },
-    {
-      name: "V-NECK RUFFLE ONE PIECE",
-      price: 1800,
-      date: "October 2025",
-      images: ["/images/products/V-NECK RUFFLE ONE PIECE.jpg"],
-      category: "Swim Wear",
-      order: 12,
-    },
   ];
 
   const [activeCategory, setActiveCategory] = useState("All");
-  const categoryRefs = useRef({});
+  const categoryRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -212,7 +221,7 @@ export default function ProductsPage() {
   }, [searchParams, categories]);
 
   // Handle tab clicks
-  const handleCategoryClick = (cat) => {
+  const handleCategoryClick = (cat: string) => {
     setActiveCategory(cat);
     router.replace(
       `/products${
@@ -234,7 +243,8 @@ export default function ProductsPage() {
   };
 
   // Sort products by order
-  const sortByOrder = (arr) => [...arr].sort((a, b) => a.order - b.order);
+  const sortByOrder = (arr: Product[]) =>
+    [...arr].sort((a, b) => a.order - b.order);
 
   return (
     <section className="max-w-full mx-auto px-6 py-12 scroll-smooth">
@@ -267,7 +277,9 @@ export default function ProductsPage() {
       {categories.map((cat) => (
         <div
           key={cat}
-          ref={(el) => (categoryRefs.current[cat] = el)}
+          ref={(el) => {
+            categoryRefs.current[cat] = el;
+          }}
           className="mb-16"
         >
           <h3 className="text-3xl font-semibold mb-6">{cat}</h3>

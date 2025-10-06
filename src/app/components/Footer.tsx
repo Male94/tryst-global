@@ -77,7 +77,7 @@ export default function Footer() {
           <div className="flex items-center space-x-2">
             <MapPin className="w-4 h-4" />
             <span className="text-sm">
-              No 121 St.Joseph's road, Kanuwana, Jaela.
+              {`No 121 St.Joseph's road, Kanuwana, Jaela.`}
             </span>
           </div>
           <div className="flex items-center space-x-2">
