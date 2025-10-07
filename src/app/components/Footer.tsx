@@ -22,7 +22,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#7c6537] text-white py-10 px-6">
+    <footer className="bg-[#7c6537] text-white py-4 px-6">
       <div className="max-w-full mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
         {/* Logo */}
         <div className="col-span-12 md:col-span-2 flex-shrink-0">
@@ -92,35 +92,39 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="bg-[#7c6537] text-white text-center text-md grid col-span-12 fraunces font-light">
-          <p>
-            Registered under the Companies Act No. 7 of 2025 Sri Lanka - Reg.
-            No. PV123456 <br />
-            <a href="#" className="text-white underline">
-              T&C
-            </a>{" "}
-            |
-            <a href="#" className="text-white underline">
-              Privacy Policy
-            </a>{" "}
+        <div className="col-span-12 text-white text-center text-md py-2 flex justify-between items-center">
+          <div className="m-0 flex flex-col items-start justify-start md:flex-row md:justify-between col-span-10 md:gap-50 fraunces font-thin">
+            <div className="text-start md:text-center">
+              Registered under the Companies Act No. 7 of 2025 Sri Lanka - Reg.
+              No. PV123456 |{" "}
+            </div>
+            <div>
+              <a href="#" className="text-white underline">
+                T&C
+              </a>{" "}
+              |
+              <a href="#" className="text-white underline">
+                Privacy Policy
+              </a>{" "}
+            </div>
             | Designed by Tryst Design team®
-          </p>
-          <div className="text-end space-y-1">
-            <a href="#" aria-label="Facebook" className="mr-2.5 inline-block">
-              <Facebook className="w-5 h-5 text-white align-middle" />
+          </div>
+          <div className="flex space-x-2.5">
+            <a href="#" aria-label="Facebook" className="inline-block">
+              <Facebook className="w-5 h-5 text-white" />
             </a>
-            <a href="#" aria-label="LinkedIn" className="mr-2.5 inline-block">
-              <Linkedin className="w-5 h-5 text-white align-middle" />
+            <a href="#" aria-label="LinkedIn" className="inline-block">
+              <Linkedin className="w-5 h-5 text-white" />
             </a>
             <a href="#" aria-label="Instagram" className="inline-block">
-              <Instagram className="w-5 h-5 text-white align-middle" />
+              <Instagram className="w-5 h-5 text-white" />
             </a>
           </div>
         </div>
       </div>
 
       {/* Divider Line */}
-      <div className="border-t border-white/20 pt-4 flex flex-col md:flex-row justify-between items-center text-sm">
+      <div className="border-t border-white/20 py-2 flex flex-col md:flex-row justify-between items-center text-sm">
         <p className="mb-3 md:mb-0">
           2025 © All Rights Reserved | Developed by{" "}
           <Link
