@@ -77,7 +77,7 @@ export default function Footer() {
         </div>
 
         {/* Contact Information */}
-        <div className="flex flex-col justify-end items-end w-full space-y-3 text-sm tracking-wide col-span-12 md:col-span-4">
+        <div className="flex flex-col justify-end items-start w-full space-y-3 text-sm tracking-wide col-span-12 md:col-span-4">
           <div className="flex items-center space-x-2">
             <MapPin className="w-6 h-6 opacity-80" />
             <span>No 121 St.Joseph’s road, kanuwana, Jaela.</span>

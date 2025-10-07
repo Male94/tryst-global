@@ -10,9 +10,9 @@ export default function CustomerLogos() {
       image: "/images/logos/druzzy.jpeg",
     },
     {
-      name: "Tailor Shop",
+      name: "haggai",
       subtitle: "PREMIUM QUALITY",
-      image: "", // Missing or broken
+      image: "/images/logos/haggai.jpeg", // Missing or broken
     },
     {
       name: "Best Tailor",
