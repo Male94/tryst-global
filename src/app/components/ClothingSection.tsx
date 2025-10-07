@@ -3,16 +3,16 @@ import Link from "next/link";
 
 export default function ClothingSection() {
   return (
-    <section className="min-h-screen flex flex-col lg:flex-row bg-white m-10">
+    <section className="min-h-screen flex flex-col lg:flex-row bg-white p-10">
       {/* Left Panel */}
-      <div className="relative bg-[url('/images/Swim.png')] bg-cover bg-center flex-1 md:p-4 lg:p-8 m-5 h-[600px] md:h-[800px] w-full">
+      <div className="relative bg-[url('/images/Swim.png')] bg-cover bg-center flex-1 md:p-4 lg:p-8 m-3 h-[600px] md:h-[800px] w-full">
         <h1 className="absolute md:relative top-3 left-3 ramillas text-4xl lg:text-6xl font-light text-gray-900 leading-tight mb-8 lg:mb-16">
           {`“Clothing that fits your life”`}
         </h1>
       </div>
 
       {/* Right Panel */}
-      <div className="flex-1 bg-[#65460a] flex flex-col justify-center items-center p-8 lg:p-16 m-5">
+      <div className="flex-1 bg-[#65460a] flex flex-col justify-center items-center p-8 lg:p-16 m-3">
         <div className="max-w-lg w-full">
           <p className="text-xl lg:text-2xl ramillas text-white font-light leading-relaxed text-center">
             {`We combine flexible production, expert sourcing, and highly skilled
