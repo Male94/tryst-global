@@ -77,7 +77,7 @@ export default function Footer() {
         </div>
 
         {/* Contact Information */}
-        <div className="flex flex-col justify-end items-end w-full space-y-3 text-sm tracking-wide md:col-span-4">
+        <div className="flex flex-col justify-end items-end w-full space-y-3 text-sm tracking-wide col-span-12 md:col-span-4">
           <div className="flex items-center space-x-2">
             <MapPin className="w-6 h-6 opacity-80" />
             <span>No 121 St.Joseph’s road, kanuwana, Jaela.</span>
@@ -92,7 +92,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="bg-[#7c6537] text-white text-center text-md grid md:col-span-12 fraunces font-light">
+        <div className="bg-[#7c6537] text-white text-center text-md grid col-span-12 fraunces font-light">
           <p>
             Registered under the Companies Act No. 7 of 2025 Sri Lanka - Reg.
             No. PV123456 <br />
@@ -105,7 +105,7 @@ export default function Footer() {
             </a>{" "}
             | Designed by Tryst Design team®
           </p>
-          <div className="text-end">
+          <div className="text-end space-y-1">
             <a href="#" aria-label="Facebook" className="mr-2.5 inline-block">
               <Facebook className="w-5 h-5 text-white align-middle" />
             </a>
