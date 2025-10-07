@@ -22,7 +22,7 @@ export default function SolutionsOffered() {
       image: "/images/image1.jpg",
       title: "Design and Development",
       description:
-        "WE UTILIZE ADVANCED PATTERN TECHNOLOGY AND 5D DESIGN TO ENHANCE AND REVOLUTIONIZE OUR CREATIVE PROCESS",
+        "WE UTILIZE ADVANCED PATTERN TECHNOLOGY AND 3D DESIGN TO ENHANCE AND REVOLUTIONIZE OUR CREATIVE PROCESS.",
       href: "/services#design-and-development",
     },
     {
@@ -36,28 +36,28 @@ export default function SolutionsOffered() {
       image: "/images/image3.jpg",
       title: "Manufacturing",
       description:
-        "WE ARE A DYNAMIC APPAREL PRODUCTION UNIT SPECIALIZING IN SHORT-ORDER QUANTITIES WITH HIGH QUALITY AND SPEED.",
+        "WE ARE A DYNAMIC APPAREL PRODUCTION UNIT FLEXIBLE FOR SHORT-ORDER QUANTITIES WITH HIGH QUALITY AND SPEED.",
       href: "/services#manufacturing",
     },
     {
       image: "/images/image1.jpg",
       title: "Private Labeling & Branding",
       description:
-        "WE UTILIZE ADVANCED PATTERN TECHNOLOGY AND 5D DESIGN TO ENHANCE AND REVOLUTIONIZE OUR CREATIVE PROCESS",
+        "LAUNCH YOUR FASHION BRAND WITH OUR RAPID, SECURE, AND TECHNICAL PRODUCTION EXPERTISE.",
       href: "/services#private-labeling-and-branding",
     },
     {
       image: "/images/image2.jpg",
-      title: "TRAINING & DEVELOPMENT",
+      title: "Training & Development",
       description:
-        "WE COLLABORATE WITH GLOBAL SUPPLIERS FROM VIETNAM, INDIA AND CHINA TO SOURCE HIGH-QUALITY AND STYLISH MATERIALS.",
+        "WE OFFER HANDS-ON APPAREL TRAINING FOR STUDENTS AND PROFESSIONALS IN PATTERN MAKING AND 3D SOFTWARE TOOLS.",
       href: "/services#training-and-development",
     },
     {
       image: "/images/image3.jpg",
       title: "Textile Consulting",
       description:
-        "WE ARE A DYNAMIC APPAREL PRODUCTION UNIT SPECIALIZING IN SHORT-ORDER QUANTITIES WITH HIGH QUALITY AND SPEED.",
+        "WE EMPOWER FASHION BRANDS WITH EXPERT CONSULTING, STREAMLINING PRODUCTION THROUGH OPTIMIZED PROCESSES, COST, AND SYSTEMS.",
       href: "/services#textile-consulting",
     },
   ];
@@ -90,7 +90,7 @@ export default function SolutionsOffered() {
 
                 <div className="absolute inset-0 w-full h-full">
                   <motion.div
-                    className="absolute bottom-0 left-0 right-0 bg-[#4a4a3d]/70 bg-opacity-90"
+                    className="absolute bottom-0 left-0 right-0 bg-[#4a4a3d] bg-opacity-95"
                     initial={{ height: isMobile ? "20%" : "25%" }}
                     animate={{
                       height:
@@ -119,7 +119,7 @@ export default function SolutionsOffered() {
 
                         <Link
                           href={solution.href}
-                          className="text-white border border-white px-6 py-2 w-fit hover:bg-white hover:text-[#4a4a3d] transition-colors duration-300"
+                          className="text-white border border-white px-6 py-2 w-fit hover:bg-white hover:text-black transition-colors duration-300"
                         >
                           See Detail
                         </Link>

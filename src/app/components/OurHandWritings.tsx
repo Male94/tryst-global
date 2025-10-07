@@ -36,11 +36,11 @@ export default function OurHandWritings() {
           src="/images/OurHandWritingsIMG.png"
           alt="our hand writing img"
           fill
-          className="object-cover"
+          className="object-fill"
           priority
         />
         {/* Section Title */}
-        <h2 className="relative text-center md:absolute top-0 sm:left-[15%] text-5xl lg:text-6xl font-light italic text-gray-900 ramillas">
+        <h2 className="relative text-center md:absolute top-0 sm:left-[10%] text-5xl lg:text-6xl font-light italic text-gray-900 ramillas">
           Our Hand Writings
         </h2>
 
