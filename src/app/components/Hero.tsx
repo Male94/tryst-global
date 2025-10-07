@@ -67,7 +67,7 @@ export default function HeroSection() {
 
         <AnimatedText
           text="The Apparel Solution Provider"
-          className="text-2xl md:text-3xl fraunces italic font-thin"
+          className="text-2xl md:text-3xl fraunces italic font-thin text-white"
         />
       </motion.div>
     </section>

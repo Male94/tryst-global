@@ -1,5 +1,6 @@
 import { MapPin, Mail, Phone } from "lucide-react";
 import Link from "next/link";
+import { Facebook, Linkedin, Instagram } from "lucide-react";
 
 export default function Footer() {
   const servicesLinks = [
@@ -22,7 +23,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#7c6537] text-white py-10 px-6">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
+      <div className="max-w-full mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
         {/* Logo */}
         <div className="col-span-12 md:col-span-2 flex-shrink-0">
           <h2 className="text-4xl font-light leading-tight">
@@ -34,7 +35,7 @@ export default function Footer() {
         </div>
 
         {/* Navigation Links */}
-        <div className="col-span-12 md:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-1 md:w-[400px]">
+        <div className="col-span-12 md:col-span-6 grid grid-cols-1 md:grid-cols-2 gap-1 md:w-[400px]">
           {/* Left Column */}
           <div className="flex flex-col space-y-2">
             <Link href="/" className="text-sm hover:text-amber-200">
@@ -76,26 +77,50 @@ export default function Footer() {
         </div>
 
         {/* Contact Information */}
-        <div className="col-span-12 md:col-span-2 flex flex-col space-y-3 mt-6 md:mt-0">
+        <div className="flex flex-col justify-end items-end w-full space-y-3 text-sm tracking-wide md:col-span-4">
           <div className="flex items-center space-x-2">
-            <MapPin className="w-4 h-4" />
-            <span className="text-sm">
-              {`No 121 St.Joseph's road, Kanuwana, Jaela.`}
-            </span>
+            <MapPin className="w-6 h-6 opacity-80" />
+            <span>No 121 St.Joseph’s road, kanuwana, Jaela.</span>
           </div>
           <div className="flex items-center space-x-2">
-            <Mail className="w-4 h-4" />
-            <span className="text-sm">MarketingSL@trystglobal.com</span>
+            <Mail className="w-5 h-5 opacity-80" />
+            <span>MarketingSL@trystglobal.com</span>
           </div>
           <div className="flex items-center space-x-2">
-            <Phone className="w-4 h-4" />
-            <span className="text-sm">+94 77 973 7096</span>
+            <Phone className="w-5 h-5 opacity-80" />
+            <span>+94779737096</span>
+          </div>
+        </div>
+
+        <div className="bg-[#7c6537] text-white text-center text-md grid md:col-span-12 fraunces font-light">
+          <p>
+            Registered under the Companies Act No. 7 of 2025 Sri Lanka - Reg.
+            No. PV123456 <br />
+            <a href="#" className="text-white underline">
+              T&C
+            </a>{" "}
+            |
+            <a href="#" className="text-white underline">
+              Privacy Policy
+            </a>{" "}
+            | Designed by Tryst Design team®
+          </p>
+          <div className="text-end">
+            <a href="#" aria-label="Facebook" className="mr-2.5 inline-block">
+              <Facebook className="w-5 h-5 text-white align-middle" />
+            </a>
+            <a href="#" aria-label="LinkedIn" className="mr-2.5 inline-block">
+              <Linkedin className="w-5 h-5 text-white align-middle" />
+            </a>
+            <a href="#" aria-label="Instagram" className="inline-block">
+              <Instagram className="w-5 h-5 text-white align-middle" />
+            </a>
           </div>
         </div>
       </div>
 
       {/* Divider Line */}
-      <div className="border-t border-white/20 mt-8 pt-4 flex flex-col md:flex-row justify-between items-center text-sm">
+      <div className="border-t border-white/20 pt-4 flex flex-col md:flex-row justify-between items-center text-sm">
         <p className="mb-3 md:mb-0">
           2025 © All Rights Reserved | Developed by{" "}
           <Link

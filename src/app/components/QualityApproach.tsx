@@ -12,7 +12,7 @@ export default function QualityApproach() {
   ];
 
   return (
-    <section className="py-12 px-6 md:px-12 bg-[#f9f8f6]">
+    <section className="min-h-screen py-12 px-6 md:px-12 bg-[#f9f8f6]">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         {/* Left Image */}
         <div className="relative w-full h-[400px] md:h-[500px]">
@@ -26,7 +26,7 @@ export default function QualityApproach() {
 
         {/* Right Content */}
         <div className="flex flex-col gap-0 items-start h-[400px] md:h-[500px] w-full">
-          <h2 className="text-3xl md:text-7xl font-light text-[#884438] mb-4 ramillas">
+          <h2 className="text-3xl md:text-6xl font-medium text-[#884438] mb-8 open-sans">
             Our Approach to Quality Textiles
           </h2>
 
@@ -34,7 +34,7 @@ export default function QualityApproach() {
             {steps.map((step, i) => (
               <li
                 key={i}
-                className="flex items-start text-lg md:text-4xl text-[#59493b] font-light fraunces"
+                className="flex items-start text-lg md:text-3xl text-[#59493b] font-medium open-sans"
               >
                 <span className="text-brown-700 font-semibold mr-4 w-6">
                   {String(i + 1).padStart(2, "0")}

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Fraunces } from "next/font/google";
+import { Fraunces, Open_Sans } from "next/font/google";
 import SearchField from "./components/SearchField";
 import Navbar from "@/app/components/Navbar";
 import Footer from "./components/Footer";
@@ -13,6 +13,13 @@ const fraunces = Fraunces({
   style: ["normal", "italic"], // include italic if available
   display: "swap",
   variable: "--font-fraunces",
+});
+
+const openSans = Open_Sans({
+  subsets: ["latin"],
+  weight: ["400", "700"], // You can add "300", "600", etc.
+  display: "swap",
+  variable: "--font-open-sans",
 });
 
 const geistSans = Geist({
@@ -36,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${fraunces.variable}`}>
+    <html lang="en" className={`${fraunces.variable} ${openSans.variable}`}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

@@ -30,8 +30,9 @@ export default function OurHandWritings() {
   ];
 
   return (
-    <section className="bg-gray-50 h-full w-full">
-      <div className="w-full h-full relative">
+    <section className="relative bg-gray-50 h-full md:h-[750px] w-full overflow-hidden">
+      {/* Background image */}
+      <div className="absolute inset-0">
         <Image
           src="/images/OurHandWritingsIMG.png"
           alt="our hand writing img"
@@ -39,13 +40,19 @@ export default function OurHandWritings() {
           className="object-fill"
           priority
         />
+        {/* White overlay */}
+        <div className="absolute inset-0 bg-white/50" />
+      </div>
+
+      {/* Content */}
+      <div className="relative w-full h-full">
         {/* Section Title */}
-        <h2 className="relative text-center md:absolute top-0 sm:left-[10%] text-5xl lg:text-6xl font-light italic text-gray-900 ramillas">
+        <h2 className="relative text-center md:absolute top-0 sm:left-[10%] text-5xl lg:text-6xl font-light italic text-gray-900 ramillas z-10">
           Our Hand Writings
         </h2>
 
         {/* Main Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 min-h-[600px]">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 min-h-[600px] relative z-10">
           <div className="max-sm:hidden md:col-span-4"></div>
 
           {/* Categories */}
@@ -68,7 +75,7 @@ export default function OurHandWritings() {
                     href={`/products?category=${cat.slug}`}
                     className="flex flex-col p-6 bg-white shadow-md rounded-lg group transition"
                   >
-                    <p className="text-sm text-black  mb-4 leading-relaxed group-hover:text-gray-900 transition">
+                    <p className="text-sm text-black mb-4 leading-relaxed group-hover:text-gray-900 transition">
                       {cat.desc}
                     </p>
                     <h3 className="text-sm md:text-lg font-bold text-gray-900 uppercase tracking-wide relative">
