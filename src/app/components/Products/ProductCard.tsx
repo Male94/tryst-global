@@ -103,7 +103,7 @@ export default function ProductCard({
             src={currentMainImage}
             alt={name}
             fill
-            className={`object-cover transition-opacity duration-500 ease-in-out ${
+            className={`object-fill transition-opacity duration-500 ease-in-out ${
               isLoading ? "opacity-0" : "opacity-100"
             }`}
             onLoadingComplete={(img) => {
