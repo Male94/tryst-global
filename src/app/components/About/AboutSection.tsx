@@ -20,7 +20,10 @@ export default function AboutSection() {
   return (
     <main className="bg-white text-[#5a4c3c] overflow-hidden">
       {/* Section 1 - About Intro */}
-      <section className="flex flex-col lg:flex-row items-center justify-between gap-10 px-6 py-20 max-w-7xl mx-auto">
+      <section
+        className="flex flex-col lg:flex-row items-center justify-between gap-10 px-6 py-20 max-w-7xl mx-auto"
+        id="story"
+      >
         {/* Left: Image / Video */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}

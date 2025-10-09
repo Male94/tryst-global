@@ -34,11 +34,11 @@ export default function Sidebar() {
     {
       label: "About Us",
       children: [
-        { href: "#story", label: "Our Story" },
-        { href: "#team", label: "Our Team" },
+        { href: "/about#story", label: "Our Story" },
+        { href: "/about#team", label: "Our Team" },
       ],
     },
-    { href: "#contact", label: "Contact Us" },
+    { href: "/about#contact", label: "Contact Us" },
   ];
 
   return (

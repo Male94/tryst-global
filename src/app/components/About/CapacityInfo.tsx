@@ -84,8 +84,10 @@ const CapacityInfo: React.FC = () => {
         </div>
       </div>
       <div className="w-px h-32 bg-[#d4a373] mx-4"></div>
-      <div className="text-start absolute left-[20%]">
-        <h3 className="text-6xl font-light text-[#7c6537]">Capacity</h3>
+      <div className="text-start absolute left-[10%] md:left-[20%]">
+        <h3 className="text-3xl md:text-6xl font-light text-[#7c6537]">
+          Capacity
+        </h3>
       </div>
     </div>
   );

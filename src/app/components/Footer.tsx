@@ -70,7 +70,10 @@ export default function Footer() {
             <Link href="/about" className="text-sm hover:text-amber-200">
               ABOUT US
             </Link>
-            <Link href="/contact" className="text-sm hover:text-amber-200">
+            <Link
+              href="/about#contact"
+              className="text-sm hover:text-amber-200"
+            >
               CONTACT US
             </Link>
           </div>

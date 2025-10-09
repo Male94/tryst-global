@@ -43,7 +43,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${openSans.variable}`}>
+    <html
+      lang="en"
+      className={`${fraunces.variable} ${openSans.variable} bg-white`}
+    >
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

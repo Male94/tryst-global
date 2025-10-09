@@ -67,7 +67,7 @@ const GarmentJourney: React.FC = () => {
   };
 
   return (
-    <div className="relative flex gap-2 w-full aspect-[4/2] p-4 bg-white">
+    <div className="relative flex flex-col md:flex-row gap-2 w-full h-[500px] p-4 bg-white">
       {/* Leaflet Map Container */}
       <div className="relative w-full h-full">
         <MapContainer
