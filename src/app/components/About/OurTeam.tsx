@@ -11,7 +11,7 @@ const OurTeam = () => {
         {/* Team Member 1 */}
         <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 text-center">
           <Image
-            src="/images/image1.jpg" // Replace with actual image URL
+            src="/images/about/image (1).png" // Replace with actual image URL
             alt="Yunesh Yomal"
             className="w-36 h-36 rounded-full mx-auto mb-4 object-cover"
             width={150}
@@ -26,7 +26,7 @@ const OurTeam = () => {
         {/* Team Member 2 */}
         <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 text-center">
           <Image
-            src="/images/image1.jpg" // Replace with actual image URL
+            src="/images/about/image (2).png" // Replace with actual image URL
             alt="Thiranga Fernando"
             className="w-36 h-36 rounded-full mx-auto mb-4 object-cover"
             width={150}
@@ -41,7 +41,7 @@ const OurTeam = () => {
         {/* Team Member 3 */}
         <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 text-center">
           <Image
-            src="/images/image1.jpg" // Replace with actual image URL
+            src="/images/about/image.png" // Replace with actual image URL
             alt="Varuna Rajapaksha"
             className="w-36 h-36 rounded-full mx-auto mb-4 object-cover"
             width={150}

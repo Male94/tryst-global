@@ -64,13 +64,13 @@ const StartProject = () => {
         <div className="relative h-[300px] w-[250px] md:h-[500px] md:w-[450px] rounded-md">
           <div className="absolute h-[300px] w-[250px] md:h-[500px] md:w-[450px] border-3 border-brown-300 -top-5 -right-5 rounded-xl"></div>
           <Image
-            src="/images/hero_img.png" // Replace with actual image URL
+            src="/images/about/image (3).png" // Replace with actual image URL
             alt="Project Team"
             className="w-full h-full rounded-xl border-4 border-brown-300"
             fill
           />
-          <div className="absolute -top-6 -right-6 bg-[#65460a] text-white px-4 py-2 rounded-xl text-md text-center font-medium">
-            {inView && !hasCounted && (
+          {/* <div className="absolute -top-6 -right-6 bg-[#65460a] text-white px-4 py-2 rounded-xl text-md text-center font-medium"> */}
+          {/* {inView && !hasCounted && (
               <CountUp
                 end={50}
                 duration={2.5}
@@ -82,10 +82,10 @@ const StartProject = () => {
               <span className="text-3xl md:text-5xl ramillas">
                 50<sup>+</sup>
               </span>
-            )}
-            <br />
-            Completed Projects
-          </div>
+            )} */}
+          {/* <br /> */}
+          {/* Completed Projects */}
+          {/* </div> */}
         </div>
       </div>
     </div>
