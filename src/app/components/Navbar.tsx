@@ -39,6 +39,7 @@ export default function Sidebar() {
       ],
     },
     { href: "/about#contact", label: "Contact Us" },
+    { href: "/tech-profile", label: "Tech Profile" },
   ];
 
   return (

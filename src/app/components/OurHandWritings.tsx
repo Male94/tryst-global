@@ -47,7 +47,7 @@ export default function OurHandWritings() {
       {/* Content */}
       <div className="relative w-full h-full">
         {/* Section Title */}
-        <h2 className="relative text-center md:absolute top-0 sm:left-[10%] text-5xl lg:text-6xl font-light italic text-gray-900 ramillas z-10">
+        <h2 className="relative text-center md:absolute md:top-6 sm:left-[10%] text-5xl lg:text-6xl font-light italic text-gray-900 ramillas z-10">
           Our Hand Writings
         </h2>
 

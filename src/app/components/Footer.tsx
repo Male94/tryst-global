@@ -76,6 +76,9 @@ export default function Footer() {
             >
               CONTACT US
             </Link>
+            <Link href="/tech-profile" className="text-sm hover:text-amber-200">
+              TECH PROFILE
+            </Link>
           </div>
         </div>
 
