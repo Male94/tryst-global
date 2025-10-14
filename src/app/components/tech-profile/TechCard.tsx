@@ -87,7 +87,7 @@ export default function ProductCard({
       {/* Main Product Image with Navigation and Zoom */}
       <div
         ref={imageContainerRef}
-        className="w-full h-64 relative overflow-hidden shadow-sm"
+        className="w-64 h-64 relative overflow-hidden shadow-sm"
         onMouseMove={handleMouseMove}
         onClick={() => setIsZoomed(!isZoomed)}
       >

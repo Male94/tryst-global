@@ -10,7 +10,7 @@ export default function Sidebar() {
 
   const links = [
     { href: "/", label: "Home" },
-    { href: "products", label: "Products" },
+    { href: "/products", label: "Products" },
     {
       label: "Services",
       children: [

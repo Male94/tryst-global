@@ -1,0 +1,52 @@
+[
+  {
+    "name": "TEST PRODUCT",
+    "price": 50,
+    "date": "2025-10-14",
+    "category": "Swim Wear",
+    "order": 1,
+    "images": [
+      "/images/products/Swim Wear/1760424687641-2CUP_WIRED_BRA_TOP.jpg"
+    ]
+  },
+  {
+    "name": "CLASSIC ONE PIECE SWIMSUITE",
+    "price": 100,
+    "date": "2025-10-14",
+    "category": "Swim Wear",
+    "order": 2,
+    "images": [
+      "/images/products/Swim Wear/1760427067739-CLASSIC_ONE_PIECE_SWIMSUITE.jpg"
+    ]
+  },
+  {
+    "name": "GIRLS SMOCKING BANDEAU",
+    "price": 100,
+    "date": "2025-10-14",
+    "category": "Swim Wear",
+    "order": 3,
+    "images": [
+      "/images/products/Swim Wear/1760442118454-GIRLS_SMOCKING_BANDEAU.jpg"
+    ]
+  },
+  {
+    "name": "SMOCKED UNDERWIRE BIKINI TOP",
+    "price": 150,
+    "date": "2025-10-14",
+    "category": "Swim Wear",
+    "order": 5,
+    "images": [
+      "/images/products/Swim Wear/1760463362024-SMOCKED_UNDERWIRE_BIKINI_TOP.jpg"
+    ]
+  },
+  {
+    "name": "STRAPPING CLASSIC  BIKINI BOTTOM",
+    "price": 200,
+    "date": "2025-10-14",
+    "category": "Swim Wear",
+    "order": 6,
+    "images": [
+      "/images/products/Swim Wear/1760463726465-STRAPPING_CLASSIC_BIKINI_BOTTOM.jpg"
+    ]
+  }
+]

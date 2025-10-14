@@ -3,7 +3,12 @@ export type Product = {
   price: number;
   date: string;
   images: string[];
-  category: string;
+  category:
+    | "Swim Wear"
+    | "Intimates"
+    | "Casual Wear"
+    | "Active Wear"
+    | "Lounge Wear";
   order: number;
 };
 
@@ -159,31 +164,31 @@ const baseProducts: Omit<Product, "order">[] = [
   },
 
   // --- Casual Wear ---
-  ...Array.from({ length: 9 }, (_, i) => ({
-    name: `CASUAL WEAR ${i + 1}`,
-    price: 900 + i * 50,
-    date: "October 2025",
-    images: [`/images/products/Casual/${i + 1}.jpg`],
-    category: "Casual Wear",
-  })),
+  // ...Array.from({ length: 9 }, (_, i) => ({
+  //   name: `CASUAL WEAR ${i + 1}`,
+  //   price: 900 + i * 50,
+  //   date: "October 2025",
+  //   images: [`/images/products/Casual/${i + 1}.jpg`],
+  //   category: "Casual Wear",
+  // })),
 
   // --- Lounge Wear ---
-  ...Array.from({ length: 6 }, (_, i) => ({
-    name: `SLEEP WEAR ${i + 1}`,
-    price: 900 + i * 50,
-    date: "October 2025",
-    images: [`/images/products/Sleep wear/${i + 1}.jpg`],
-    category: "Lounge Wear",
-  })),
+  // ...Array.from({ length: 6 }, (_, i) => ({
+  //   name: `SLEEP WEAR ${i + 1}`,
+  //   price: 900 + i * 50,
+  //   date: "October 2025",
+  //   images: [`/images/products/Sleep wear/${i + 1}.jpg`],
+  //   category: "Lounge Wear",
+  // })),
 
   // --- Active Wear ---
-  ...Array.from({ length: 6 }, (_, i) => ({
-    name: `ACTIVE WEAR ${i + 1}`,
-    price: 900 + i * 50,
-    date: "October 2025",
-    images: [`/images/products/Active Wear/${i + 1}.jpeg`],
-    category: "Active Wear",
-  })),
+  // ...Array.from({ length: 6 }, (_, i) => ({
+  //   name: `ACTIVE WEAR ${i + 1}`,
+  //   price: 900 + i * 50,
+  //   date: "October 2025",
+  //   images: [`/images/products/Active Wear/${i + 1}.jpeg`],
+  //   category: "Active Wear",
+  // })),
 ];
 
 // Apply unique incremental order IDs

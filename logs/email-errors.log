@@ -54,3 +54,24 @@
   "stack": "Error: Missing credentials for \"PLAIN\"\n    at SMTPConnection._formatError (D:\\NEXT\\tryst-global-git\\.next\\server\\chunks\\node_modules_46cd2de8._.js:23542:19)\n    at SMTPConnection.login (D:\\NEXT\\tryst-global-git\\.next\\server\\chunks\\node_modules_46cd2de8._.js:23266:38)\n    at D:\\NEXT\\tryst-global-git\\.next\\server\\chunks\\node_modules_46cd2de8._.js:25664:32\n    at SMTPConnection.<anonymous> (D:\\NEXT\\tryst-global-git\\.next\\server\\chunks\\node_modules_46cd2de8._.js:23076:17)\n    at Object.onceWrapper (node:events:638:28)\n    at SMTPConnection.emit (node:events:524:28)\n    at SMTPConnection._actionEHLO (D:\\NEXT\\tryst-global-git\\.next\\server\\chunks\\node_modules_46cd2de8._.js:23992:14)\n    at SMTPConnection._processResponse (D:\\NEXT\\tryst-global-git\\.next\\server\\chunks\\node_modules_46cd2de8._.js:23683:20)\n    at SMTPConnection._onData (D:\\NEXT\\tryst-global-git\\.next\\server\\chunks\\node_modules_46cd2de8._.js:23515:14)\n    at SMTPConnection._onSocketData (D:\\NEXT\\tryst-global-git\\.next\\server\\chunks\\node_modules_46cd2de8._.js:23061:48)\n    at TLSSocket.emit (node:events:524:28)\n    at addChunk (node:internal/streams/readable:561:12)\n    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)\n    at Readable.push (node:internal/streams/readable:392:5)\n    at TLSWrap.onStreamRead (node:internal/stream_base_commons:189:23)\n    at TLSWrap.callbackTrampoline (node:internal/async_hooks:130:17)"
 }
 ----------------------------------------------
+
+[2025-10-13T11:23:45.438Z] ERROR: Email sending failed
+{
+  "message": "connect ETIMEDOUT 216.198.79.1:465",
+  "stack": "Error: connect ETIMEDOUT 216.198.79.1:465\n    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1634:16)\n    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)"
+}
+----------------------------------------------
+
+[2025-10-13T11:24:47.572Z] ERROR: Email sending failed
+{
+  "message": "connect ETIMEDOUT 216.198.79.1:465",
+  "stack": "Error: connect ETIMEDOUT 216.198.79.1:465\n    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1634:16)\n    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)"
+}
+----------------------------------------------
+
+[2025-10-13T11:26:06.657Z] ERROR: Email sending failed
+{
+  "message": "connect ETIMEDOUT 216.198.79.1:465",
+  "stack": "Error: connect ETIMEDOUT 216.198.79.1:465\n    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1634:16)\n    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)"
+}
+----------------------------------------------

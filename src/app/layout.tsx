@@ -6,6 +6,7 @@ import SearchField from "./components/SearchField";
 import Navbar from "@/app/components/Navbar";
 import Footer from "./components/Footer";
 import SocialMediaIcons from "./components/SocialMediaIcons";
+import { SessionProvider } from "next-auth/react";
 
 const fraunces = Fraunces({
   subsets: ["latin"],

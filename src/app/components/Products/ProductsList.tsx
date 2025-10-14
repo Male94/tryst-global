@@ -3,7 +3,7 @@
 import { useState, useMemo, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import ProductCard from "@/app/components/Products/ProductCard";
-import { products, Product } from "@/app/data/products";
+import { Product } from "@/app/data/products";
 
 export default function ProductsPage() {
   const categories = useMemo(
@@ -20,8 +20,19 @@ export default function ProductsPage() {
 
   const searchParams = useSearchParams();
   const router = useRouter();
-
   const [activeCategory, setActiveCategory] = useState("All");
+  const [products, setProducts] = useState<Product[]>([]);
+
+  // Load products.json on mount
+  useEffect(() => {
+    fetch("/data/products.json") // must be in public/data/products.json
+      .then((res) => {
+        if (!res.ok) throw new Error("Network response was not ok");
+        return res.json();
+      })
+      .then((data: Product[]) => setProducts(data))
+      .catch((err) => console.error("Failed to load products:", err));
+  }, []);
 
   // Detect ?category= param on page load
   useEffect(() => {
@@ -31,12 +42,10 @@ export default function ProductsPage() {
         (cat) => cat.toLowerCase().replace(/\s+/g, "-") === param.toLowerCase()
       );
       if (match) setActiveCategory(match);
-    } else {
-      setActiveCategory("All");
     }
   }, [searchParams, categories]);
 
-  // Update active tab + URL on click
+  // Update URL when category changes
   const handleCategoryClick = (cat: string) => {
     setActiveCategory(cat);
     router.replace(
@@ -48,25 +57,30 @@ export default function ProductsPage() {
     );
   };
 
-  // Sort products by order value
-  const sortByOrder = (arr: Product[]) =>
-    [...arr].sort((a, b) => a.order - b.order);
+  // Sort products by order
+  const sortedProducts = useMemo(
+    () => [...products].sort((a, b) => a.order - b.order),
+    [products]
+  );
 
   // Filter products by active category
-  const filteredProducts =
-    activeCategory === "All"
-      ? products
-      : products.filter(
-          (p) =>
-            p.category.toLowerCase().trim() ===
-            activeCategory.toLowerCase().trim()
-        );
+  const filteredProducts = useMemo(
+    () =>
+      activeCategory === "All"
+        ? sortedProducts
+        : sortedProducts.filter(
+            (p) =>
+              p.category.toLowerCase().trim() ===
+              activeCategory.toLowerCase().trim()
+          ),
+    [activeCategory, sortedProducts]
+  );
 
   return (
     <section className="max-w-full mx-auto px-6 py-12">
       <h2 className="text-6xl italic font-serif mb-8 ramillas">Products</h2>
 
-      {/* Tabs */}
+      {/* Category Tabs */}
       <div className="flex gap-4 flex-wrap mb-10">
         {categories.map((cat) => (
           <button
@@ -89,8 +103,8 @@ export default function ProductsPage() {
 
         {filteredProducts.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 bg-[#f6f4f1] p-5 rounded-2xl">
-            {sortByOrder(filteredProducts).map((p) => (
-              <ProductCard key={p.order} {...p} />
+            {filteredProducts.map((p) => (
+              <ProductCard key={p.date} {...p} />
             ))}
           </div>
         ) : (
