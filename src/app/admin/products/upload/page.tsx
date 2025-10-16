@@ -21,12 +21,12 @@ export default function ProductUploadPage() {
 
   // ✅ Redirect if not logged in or not admin
   useEffect(() => {
-    console.log("Session status:", status, "Session data:", session);
-    if (status === "unauthenticated") {
-      router.push("/admin/login");
-    } else if (status === "authenticated" && session?.user?.isAdmin !== true) {
-      router.push("/not-authorized"); // optional page for non-admins
-    }
+    // console.log("Session status:", status, "Session data:", session);
+    // if (status === "unauthenticated") {
+    //   router.push("/admin/login");
+    // } else if (status === "authenticated" && session?.user?.isAdmin !== true) {
+    //   router.push("/not-authorized"); // optional page for non-admins
+    // }
   }, [status, session, router]);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -55,7 +55,7 @@ export default function ProductUploadPage() {
   if (status === "loading") return <p>Loading...</p>;
 
   // 🧱 If no session (while redirecting), show nothing
-  if (!session?.user?.isAdmin) return null;
+  // if (!session?.user?.isAdmin) return null;
 
   return (
     <div className="max-w-2xl mx-auto p-10 m-20 bg-white shadow-xl rounded-2xl">

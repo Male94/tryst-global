@@ -7,10 +7,10 @@ import { authOptions } from "./authOptions";
 export default async function AdminDashboard() {
   const session = await getServerSession(authOptions);
 
-  if (!session?.user?.isAdmin) {
-    // console.log(session);
-    return redirect("/admin/login");
-  }
+  // if (!session?.user?.isAdmin) {
+  //   // console.log(session);
+  //   return redirect("/admin/login");
+  // }
 
   return (
     <div className="min-h-screen p-8 bg-gray-100">
