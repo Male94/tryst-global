@@ -2,13 +2,11 @@ import { NextResponse } from "next/server";
 import path from "path";
 import fs from "fs";
 import { writeFile } from "fs/promises";
+import { PrismaClient } from "@prisma/client";
 import { Product } from "@/app/data/products";
 
-// ✅ Next.js app router doesn’t use `api.bodyParser` anymore
-//    This config only works in the pages directory, so you can remove it safely.
-//    FormData is already supported natively in the app router.
+const prisma = new PrismaClient();
 
-// If you're using the /app/api route (not /pages/api), you don’t need this:
 export const config = {
   api: {
     bodyParser: false,
@@ -33,7 +31,6 @@ export async function POST(req: Request) {
       );
     }
 
-    // 🗂️ Define valid categories to avoid literal type errors
     const allowedCategories = [
       "Swim Wear",
       "Intimates",
@@ -42,30 +39,23 @@ export async function POST(req: Request) {
       "Lounge Wear",
     ] as const;
 
-    type Category = (typeof allowedCategories)[number];
-
-    if (!allowedCategories.includes(category as Category)) {
+    if (!allowedCategories.includes(category as Product["category"])) {
       return NextResponse.json(
         { success: false, message: `Invalid category: ${category}` },
         { status: 400 }
       );
     }
 
-    const categoryTyped = category as Category;
-
-    // 🏗️ Create upload directory path
     const uploadDir = path.join(
       process.cwd(),
       "public",
       "images",
       "products",
-      categoryTyped
+      category
     );
 
-    // Create directory if it doesn’t exist
     fs.mkdirSync(uploadDir, { recursive: true });
 
-    // 💾 Save uploaded images
     const savedFiles: string[] = [];
 
     for (const file of files) {
@@ -75,43 +65,44 @@ export async function POST(req: Request) {
       const filePath = path.join(uploadDir, fileName);
 
       await writeFile(filePath, buffer);
-
-      savedFiles.push(`/images/products/${categoryTyped}/${fileName}`);
+      savedFiles.push(`/images/products/${category}/${fileName}`);
     }
 
-    // 🧱 Construct new product
-    const newProduct: Product = {
-      name,
-      price: parseFloat(price),
-      date,
-      category: categoryTyped,
-      order: Number(order),
-      images: savedFiles,
-    };
+    // ✅ Save to database using Prisma
+    const product = await prisma.product.create({
+      data: {
+        name,
+        price: parseFloat(price),
+        date: new Date(date),
+        category,
+        order: Number(order),
+        images: savedFiles, // JSON field in Prisma
+      },
+    });
 
-    console.log("✅ Product saved:", newProduct);
+    console.log("✅ Product saved to DB:", product);
 
-    // 🗃️ Database file path
-    const dbPath = path.join(process.cwd(), "public", "data", "products.json");
-
-    fs.mkdirSync(path.dirname(dbPath), { recursive: true });
-
-    let products: Product[] = [];
-    if (fs.existsSync(dbPath)) {
-      const raw = fs.readFileSync(dbPath, "utf-8");
-      products = raw ? JSON.parse(raw) : [];
-    }
-
-    products.push(newProduct);
-    fs.writeFileSync(dbPath, JSON.stringify(products, null, 2));
-
-    return NextResponse.json({ success: true, product: newProduct });
+    return NextResponse.json({ success: true, product });
   } catch (err: unknown) {
     console.error("❌ Upload error:", err);
-
     const message =
       err instanceof Error ? err.message : "An unexpected error occurred";
 
     return NextResponse.json({ success: false, message }, { status: 500 });
+  }
+}
+
+export async function GET() {
+  try {
+    const products = await prisma.product.findMany({
+      orderBy: { order: "asc" },
+    });
+    return NextResponse.json({ success: true, products });
+  } catch (err) {
+    console.error("❌ Failed to fetch products:", err);
+    return NextResponse.json(
+      { success: false, message: "Failed to load products" },
+      { status: 500 }
+    );
   }
 }

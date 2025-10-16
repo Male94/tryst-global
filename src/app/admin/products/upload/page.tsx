@@ -19,13 +19,12 @@ export default function ProductUploadPage() {
   const [previewImages, setPreviewImages] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
 
-  // ✅ Redirect if not logged in or not admin
+  // 🧠 Optional: Protect route (only admins can upload)
   useEffect(() => {
-    // console.log("Session status:", status, "Session data:", session);
     // if (status === "unauthenticated") {
     //   router.push("/admin/login");
-    // } else if (status === "authenticated" && session?.user?.isAdmin !== true) {
-    //   router.push("/not-authorized"); // optional page for non-admins
+    // } else if (status === "authenticated" && !session?.user?.isAdmin) {
+    //   router.push("/not-authorized");
     // }
   }, [status, session, router]);
 
@@ -33,28 +32,32 @@ export default function ProductUploadPage() {
     e.preventDefault();
     setLoading(true);
 
-    const formData = new FormData(e.currentTarget);
-    const res = await fetch("/api/products", {
-      method: "POST",
-      body: formData,
-    });
+    try {
+      const formData = new FormData(e.currentTarget);
 
-    const data = await res.json();
-    setLoading(false);
+      const res = await fetch("/api/products", {
+        method: "POST",
+        body: formData,
+      });
 
-    if (data.success) {
-      alert("✅ Product uploaded successfully!");
-      e.currentTarget.reset();
-      setPreviewImages([]);
-    } else {
-      alert("❌ Upload failed!");
+      const data = await res.json();
+      setLoading(false);
+
+      if (res.ok && data.success) {
+        alert("✅ Product uploaded successfully!");
+        e.currentTarget.reset();
+        setPreviewImages([]);
+      } else {
+        alert(`❌ Upload failed: ${data.message || "Unknown error"}`);
+      }
+    } catch (err) {
+      console.error("❌ Upload error:", err);
+      alert("⚠️ Something went wrong while uploading!");
+      setLoading(false);
     }
   }
 
-  // 🕒 Show loading state until session is known
   if (status === "loading") return <p>Loading...</p>;
-
-  // 🧱 If no session (while redirecting), show nothing
   // if (!session?.user?.isAdmin) return null;
 
   return (
@@ -76,6 +79,7 @@ export default function ProductUploadPage() {
         <input
           name="price"
           type="number"
+          step="0.01"
           placeholder="Price (e.g. 49.99)"
           required
           className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
