@@ -72,9 +72,10 @@ export const authOptions: AuthOptions = {
     },
     async session({ session, token }) {
       session.user = {
-        id: token.id,
-        name: token.name,
-        isAdmin: token.isAdmin,
+        id: token.id as string,
+        email: token.email as string,
+        name: token.name as string,
+        isAdmin: token.isAdmin as boolean,
       };
       return session;
     },
