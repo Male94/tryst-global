@@ -21,6 +21,7 @@ export default function ProductUploadPage() {
 
   // ✅ Redirect if not logged in or not admin
   useEffect(() => {
+    console.log("Session status:", status, "Session data:", session);
     if (status === "unauthenticated") {
       router.push("/admin/login");
     } else if (status === "authenticated" && session?.user?.isAdmin !== true) {

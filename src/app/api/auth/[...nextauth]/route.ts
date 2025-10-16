@@ -63,6 +63,7 @@ export const authOptions: AuthOptions = {
 
   callbacks: {
     async jwt({ token, user }) {
+      console.log("JWT callback:", { token, user });
       if (user) {
         token.id = user.id;
         token.isAdmin = user.isAdmin;
@@ -70,10 +71,11 @@ export const authOptions: AuthOptions = {
       return token;
     },
     async session({ session, token }) {
-      if (session.user) {
-        session.user.id = token.id!;
-        session.user.isAdmin = token.isAdmin;
-      }
+      session.user = {
+        id: token.id,
+        name: token.name,
+        isAdmin: token.isAdmin,
+      };
       return session;
     },
   },

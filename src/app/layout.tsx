@@ -7,6 +7,7 @@ import Navbar from "@/app/components/Navbar";
 import Footer from "./components/Footer";
 import SocialMediaIcons from "./components/SocialMediaIcons";
 import { SessionProvider } from "next-auth/react";
+import { Providers } from "./admin/Providers";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -48,15 +49,17 @@ export default function RootLayout({
       lang="en"
       className={`${fraunces.variable} ${openSans.variable} bg-white`}
     >
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <SearchField />
-        <Navbar />
-        <SocialMediaIcons />
-        {children}
-        <Footer />
-      </body>
+      <Providers>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <SearchField />
+          <Navbar />
+          <SocialMediaIcons />
+          {children}
+          <Footer />
+        </body>
+      </Providers>
     </html>
   );
 }
