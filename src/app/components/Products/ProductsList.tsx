@@ -78,7 +78,7 @@ export default function ProductsPage() {
 
   return (
     <section className="max-w-full mx-auto px-6 py-12">
-      <h2 className="text-6xl italic font-serif mb-8 ramillas">Products</h2>
+      <h2 className="text-6xl italic font-serif mb-8 ramillas">Product</h2>
 
       {/* Category Tabs */}
       <div className="flex gap-4 flex-wrap mb-10">
