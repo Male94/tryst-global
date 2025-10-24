@@ -53,7 +53,7 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <SearchField />
+          {/* <SearchField /> */}
           <Navbar />
           <SocialMediaIcons />
           {children}
