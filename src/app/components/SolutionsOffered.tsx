@@ -78,16 +78,16 @@ export default function SolutionsOffered() {
   );
 
   // 🕒 Auto-play slideshow on idle
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setHoveredRow(autoIndex % rows.length);
-      setHoveredSolution(
-        rows[autoIndex % rows.length][Math.floor(Math.random() * 3)]
-      );
-      setAutoIndex((prev) => prev + 1);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [autoIndex, rows]);
+  // useEffect(() => {
+  //   const timer = setInterval(() => {
+  //     setHoveredRow(autoIndex % rows.length);
+  //     setHoveredSolution(
+  //       rows[autoIndex % rows.length][Math.floor(Math.random() * 3)]
+  //     );
+  //     setAutoIndex((prev) => prev + 1);
+  //   }, 5000);
+  //   return () => clearInterval(timer);
+  // }, [autoIndex, rows]);
 
   return (
     <section className="py-20 bg-gray-100">
