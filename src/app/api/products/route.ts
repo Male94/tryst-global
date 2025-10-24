@@ -1,17 +1,45 @@
 import { NextResponse } from "next/server";
-import path from "path";
-import fs from "fs";
-import { writeFile } from "fs/promises";
 import { PrismaClient } from "@prisma/client";
-import { Product } from "@/app/data/products";
 
 const prisma = new PrismaClient();
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
+// Allowed categories for safety
+const allowedCategories = [
+  "Swim Wear",
+  "Intimates",
+  "Casual Wear",
+  "Active Wear",
+  "Lounge Wear",
+] as const;
+
+type Category = (typeof allowedCategories)[number];
+
+/** Upload file to your HostHere PHP API */
+async function uploadToHosthere(
+  file: File,
+  category: Category
+): Promise<string> {
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("category", category);
+
+  // 🔗 CHANGE THIS to your real domain & upload script path
+  const endpoint = "https://yourdomain.com/api/upload.php";
+
+  const res = await fetch(endpoint, {
+    method: "POST",
+    body: formData,
+  });
+
+  const data = await res.json();
+  if (!data.success) {
+    console.error("❌ Upload failed:", data.message);
+    throw new Error(data.message || "Upload failed");
+  }
+
+  console.log("✅ Uploaded to HostHere:", data.url);
+  return data.url;
+}
 
 export async function POST(req: Request) {
   try {
@@ -31,64 +59,39 @@ export async function POST(req: Request) {
       );
     }
 
-    const allowedCategories = [
-      "Swim Wear",
-      "Intimates",
-      "Casual Wear",
-      "Active Wear",
-      "Lounge Wear",
-    ] as const;
-
-    if (!allowedCategories.includes(category as Product["category"])) {
+    if (!allowedCategories.includes(category as Category)) {
       return NextResponse.json(
         { success: false, message: `Invalid category: ${category}` },
         { status: 400 }
       );
     }
 
-    const uploadDir = path.join(
-      process.cwd(),
-      "public",
-      "images",
-      "products",
-      category
-    );
-
-    fs.mkdirSync(uploadDir, { recursive: true });
-
     const savedFiles: string[] = [];
 
     for (const file of files) {
-      const bytes = await file.arrayBuffer();
-      const buffer = Buffer.from(bytes);
-      const fileName = `${Date.now()}-${file.name.replace(/\s+/g, "_")}`;
-      const filePath = path.join(uploadDir, fileName);
-
-      await writeFile(filePath, buffer);
-      savedFiles.push(`/images/products/${category}/${fileName}`);
+      const url = await uploadToHosthere(file, category as Category);
+      savedFiles.push(url);
     }
 
-    // ✅ Save to database using Prisma
+    // Save to DB
     const product = await prisma.product.create({
       data: {
         name,
         price: parseFloat(price),
         date: new Date(date),
-        category,
+        category: category as Category,
         order: Number(order),
-        images: savedFiles, // JSON field in Prisma
+        images: savedFiles,
       },
     });
 
-    console.log("✅ Product saved to DB:", product);
-
     return NextResponse.json({ success: true, product });
   } catch (err: unknown) {
-    console.error("❌ Upload error:", err);
-    const message =
-      err instanceof Error ? err.message : "An unexpected error occurred";
-
-    return NextResponse.json({ success: false, message }, { status: 500 });
+    console.error("❌ Product upload failed:", err);
+    return NextResponse.json(
+      { success: false, message: (err as Error).message || "Unexpected error" },
+      { status: 500 }
+    );
   }
 }
 

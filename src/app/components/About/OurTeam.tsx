@@ -7,9 +7,9 @@ const OurTeam = () => {
       <h2 className="text-4xl md:text-5xl  text-brown-700 text-center mb-8 open-sans">
         Our Team
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto px-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto px-4">
         {/* Team Member 1 */}
-        <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 text-center">
+        {/* <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 text-center">
           <Image
             src="/images/about/image (1).png" // Replace with actual image URL
             alt="Yunesh Yomal"
@@ -21,7 +21,7 @@ const OurTeam = () => {
           <p className="text-gray-600">CEO & Owner</p>
           <p className="text-gray-500">WhatsApp: +94 77 392 5888</p>
           <p className="text-gray-500">yunesh@trystglobal.com</p>
-        </div>
+        </div> */}
 
         {/* Team Member 2 */}
         <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 text-center">

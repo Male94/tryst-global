@@ -113,7 +113,7 @@ export default function Footer() {
                 Privacy Policy
               </a>{" "}
             </div>
-            | Designed by Tryst Design team®
+            {/* | Designed by Tryst Design team® */}
           </div>
           <div className="flex space-x-2.5">
             <a href="#" aria-label="Facebook" className="inline-block">
