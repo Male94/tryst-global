@@ -12,37 +12,27 @@ export default function QualityApproach() {
   ];
 
   return (
-    <section className="min-h-screen py-12 px-6 md:px-12 bg-[#f9f8f6]">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        {/* Left Image */}
-        <div className="relative w-full h-[400px] md:h-[500px]">
-          <Image
-            src="/images/home/Copilot_20250929_004516.png" // put your screenshot image here
-            alt="Our approach to textiles"
-            fill
-            className="object-cover shadow-md"
-          />
-        </div>
-
-        {/* Right Content */}
-        <div className="flex flex-col gap-0 items-start h-[400px] md:h-[500px] w-full">
-          <h2 className="text-3xl md:text-6xl font-medium text-[#884438] mb-8 open-sans">
-            Our Approach to Quality Textiles
-          </h2>
-
-          <ul className="space-y-5">
-            {steps.map((step, i) => (
-              <li
-                key={i}
-                className="flex items-start text-lg md:text-3xl text-[#59493b] font-medium open-sans"
-              >
-                <span className="text-brown-700 font-semibold mr-4 w-6">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span className="ml-5">{step}</span>
-              </li>
-            ))}
-          </ul>
+    <section className="relative min-h-screen bg-[url('/images/background_for_our_approach.jpg')] bg-cover bg-center bg-fixed flex justify-start items-center">
+      {/* Content overlay */}
+      <div className="relative z-50 w-full h-full flex justify-center md:justify-end items-center">
+        <div className="w-full md:w-1/2 p-20 md:pr-20 md:pl-30">
+          <div className="bg-white/40 rounded-[50px] p-20 md:p-10">
+            <h1 className="text-[#2D1810] text-3xl md:text-5xl font-bold mb-10 text-end leading-8 md:leading-16 open-sans">
+              OUR APPROACH TO
+              <br />
+              QUALITY TEXTILES
+            </h1>
+            <div className="space-y-6 text-end">
+              {steps.map((step, i) => (
+                <p
+                  key={i}
+                  className="text-[#2D1810] text-xl md:text-2xl font-extralight tracking-wide open-sans"
+                >
+                  {step}
+                </p>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

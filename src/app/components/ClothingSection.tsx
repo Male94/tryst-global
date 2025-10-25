@@ -5,7 +5,7 @@ export default function ClothingSection() {
   return (
     <section className="min-h-screen flex flex-col lg:flex-row bg-white p-10">
       {/* Left Panel */}
-      <div className="relative bg-[url('/images/Swim.png')] bg-cover bg-center flex-1 md:p-4 lg:p-8 m-3 h-[600px] md:h-[800px] w-full">
+      <div className="relative bg-[url('/images/Swim.png')] bg-cover bg-center flex-1 md:p-4 p-8 m-3 h-[800px] md:h-[800px] w-full">
         <h1 className="flex flex-col absolute md:relative top-3 left-3 ramillas text-4xl lg:text-6xl font-light text-gray-900 leading-tight mb-8 lg:mb-16">
           <span className="text-left self-start">{`“Clothing that `}</span>
           <span className="text-right self-end">{`fits your life”`}</span>

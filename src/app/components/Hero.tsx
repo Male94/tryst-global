@@ -52,14 +52,14 @@ const AnimatedText = ({
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative max-h-screen flex items-center justify-center overflow-hidden">
       {/* 🔹 Background Video */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+        className="relative inset-0 object-cover"
       >
         <source src="/videos/hero_video.mp4" type="video/mp4" />
         {/* optional: fallback message */}
