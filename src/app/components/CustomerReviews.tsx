@@ -61,7 +61,7 @@ export default function WhatClientsSay() {
     <section className="relative bg-[url('/images/background_for_what_clients_say.jpg')] bg-cover bg-center bg-fixed overflow-visible">
       <div className="grid md:grid-cols-2 items-start h-[500px] md:h-[1000px] relative w-full">
         {/* LEFT: Model Image overlapping top */}
-        <div className="absolute left-0 top-2 md:-top-30 w-1/2 h-full md:h-[1150px] z-[3] pointer-events-none">
+        <div className="absolute left-0 top-2 md:-top-40 w-1/2 h-full md:h-[1190px] z-[3] pointer-events-none">
           <Image
             src="/images/what_clients_says_image.png"
             alt="Model"
@@ -73,15 +73,37 @@ export default function WhatClientsSay() {
 
         {/* RIGHT: Scrollable / Animated Content */}
         <div className="absolute left-1/2 z-[2] p-10 md:p-16 lg:p-24 bg-white/80 backdrop-blur-sm overflow-hidden h-full md:ml-auto md:w-1/2">
-          <motion.h3
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-4xl font-bold text-gray-900 mb-10 ramillas"
-          >
+          {/* Header + Navigation */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="flex items-center justify-between mb-10"
+        >
+          <h3 className="text-4xl font-bold text-gray-900 ramillas">
             What Clients Say
-          </motion.h3>
+          </h3>
+
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => paginate(-1)}
+              aria-label="Previous review"
+              className="group flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full border border-gray-300 bg-white shadow-md hover:bg-blue-100 hover:border-blue-400 transition-all duration-300"
+            >
+              <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-gray-600 group-hover:text-blue-600 transform group-hover:-translate-x-1 transition-transform duration-300" />
+            </button>
+
+            <button
+              onClick={() => paginate(1)}
+              aria-label="Next review"
+              className="group flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full border border-gray-300 bg-white shadow-md hover:bg-blue-100 hover:border-blue-400 transition-all duration-300"
+            >
+              <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-gray-600 group-hover:text-blue-600 transform group-hover:translate-x-1 transition-transform duration-300" />
+            </button>
+          </div>
+        </motion.div>
+
 
           {/* Animated Testimonials */}
           <div className="relative min-h-[200px]">
@@ -107,7 +129,7 @@ export default function WhatClientsSay() {
           </div>
 
           {/* Navigation Arrows */}
-          <motion.div
+          {/* <motion.div
             className="flex items-center gap-4 mt-12"
             variants={fadeIn}
             initial="hidden"
@@ -130,7 +152,7 @@ export default function WhatClientsSay() {
             >
               <ChevronRight className="w-6 h-6 text-gray-600 group-hover:text-blue-600 transform group-hover:translate-x-1 transition-transform duration-300" />
             </button>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
     </section>

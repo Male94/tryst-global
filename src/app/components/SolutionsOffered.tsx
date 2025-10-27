@@ -1,49 +1,38 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useAnimation, useMotionValue } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function SolutionsOffered() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
-  const [dragRange, setDragRange] = useState({ left: 0, right: 0 });
   const controls = useAnimation();
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const x = useMotionValue(0);
-  const cardRefs = useRef<Array<HTMLDivElement | null>>([]); // Array of refs for each card
 
   useEffect(() => {
     setIsMobile("ontouchstart" in window);
-    calculateDragRange();
     startAutoScroll();
-
-    // Recalculate on resize
-    window.addEventListener("resize", calculateDragRange);
-    return () => window.removeEventListener("resize", calculateDragRange);
   }, []);
-
-  const calculateDragRange = () => {
-    if (carouselRef.current) {
-      const totalWidth = carouselRef.current.scrollWidth;
-      const visibleWidth = carouselRef.current.offsetWidth;
-      setDragRange({ left: -(totalWidth - visibleWidth), right: 0 });
-    }
-  };
 
   const startAutoScroll = () => {
     controls.start({
       x: ["0%", "-50%"],
       transition: {
-        duration: 25,
         ease: "linear",
+        duration: 20,
         repeat: Infinity,
       },
     });
   };
 
-  const stopAutoScroll = () => controls.stop();
+  const stopAutoScroll = () => {
+    controls.stop();
+  };
+
+  const handleInteraction = (index: number, isEntering: boolean) => {
+    setActiveIndex(isEntering ? index : null);
+  };
 
   const solutions = [
     {
@@ -90,113 +79,85 @@ export default function SolutionsOffered() {
     },
   ];
 
-  const handleHover = (index: number) => {
-    if (!cardRefs.current[index] || !carouselRef.current) return;
-    stopAutoScroll();
-    setActiveIndex(index);
-
-    const carousel = carouselRef.current;
-    const cardRect = cardRefs.current[index]!.getBoundingClientRect();
-    const carouselRect = carousel.getBoundingClientRect();
-
-    const scrollLeft =
-      carousel.scrollLeft +
-      (cardRect.left +
-        cardRect.width / 2 -
-        carouselRect.left -
-        carouselRect.width / 2);
-
-    carousel.scrollTo({ left: scrollLeft, behavior: "smooth" });
-  };
-
-  const handleLeave = () => {
-    setActiveIndex(null);
-    startAutoScroll();
-  };
-
   return (
-    <section className="py-20 bg-white overflow-hidden">
-      <h2 className="text-5xl lg:text-6xl font-light italic text-gray-900 mb-16 text-left ramillas px-8">
-        Solutions Offered
-      </h2>
+    <section className="py-16 px-4 bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-5xl lg:text-6xl font-light italic text-gray-900 mb-16 text-left ramillas">
+          Solutions Offered
+        </h2>
 
-      <div ref={carouselRef} className="relative w-full overflow-hidden">
+        {/* MOVING + DRAGGABLE CONTAINER */}
         <motion.div
-          style={{ x }}
+          className="flex gap-8 lg:gap-12 w-[200%] cursor-grab active:cursor-grabbing"
           animate={controls}
           drag="x"
-          dragConstraints={dragRange}
-          dragElastic={0.15}
+          dragConstraints={{ left: -1000, right: 0 }}
+          dragElastic={0.1}
           onDragStart={stopAutoScroll}
-          onDragEnd={() => startAutoScroll()}
-          className="flex w-[200%] cursor-grab active:cursor-grabbing select-none"
+          onDragEnd={startAutoScroll}
+          onMouseEnter={stopAutoScroll}
+          onMouseLeave={startAutoScroll}
         >
-          {[...solutions, ...solutions].map((solution, index) => {
-            const isActive = activeIndex === index;
-
-            // Initialize cardRefs array length if needed
-            if (cardRefs.current.length <= index) {
-              cardRefs.current.push(null);
-            }
-
-            return (
-              <motion.div
-                ref={(el) => {
-                  cardRefs.current[index] = el; // Assign the ref
-                }} // Assign ref dynamically
-                key={index}
-                className={`relative h-[60vh] flex-shrink-0 transition-all duration-700 ${
-                  isActive ? "w-screen" : "w-[50vw] md:w-[33.33vw]"
-                }`}
-                onMouseEnter={() => !isMobile && handleHover(index)}
-                onMouseLeave={() => !isMobile && handleLeave()}
-                onClick={() =>
-                  isMobile &&
-                  (activeIndex === index ? handleLeave() : handleHover(index))
-                }
-              >
+          {[...solutions, ...solutions].map((solution, index) => (
+            <div
+              key={index}
+              className="flex flex-col ramillas relative w-[400px] flex-shrink-0"
+              onMouseEnter={() => !isMobile && handleInteraction(index, true)}
+              onMouseLeave={() => !isMobile && handleInteraction(index, false)}
+              onClick={() =>
+                isMobile && handleInteraction(index, activeIndex !== index)
+              }
+            >
+              <div className="relative w-full h-80 overflow-hidden shadow-lg">
                 <Image
                   src={solution.image}
                   alt={solution.title}
                   fill
-                  className={`object-cover transition-transform duration-700 ${
-                    isActive ? "scale-110" : "scale-100"
-                  }`}
+                  className="object-cover"
                 />
 
-                {/* Title overlay (always visible when inactive) */}
-                <div
-                  className={`absolute bottom-0 left-0 right-0 bg-black/50 p-4 text-center transition-all duration-500 ${
-                    isActive ? "opacity-0" : "opacity-100"
-                  }`}
-                >
-                  <h3 className="text-lg font-bold text-white uppercase tracking-wide">
-                    {solution.title}
-                  </h3>
-                </div>
-
-                {/* Hover / Active content */}
-                <motion.div
-                  className={`absolute inset-0 flex flex-col items-start justify-center bg-black/50 transition-opacity duration-500 ${
-                    isActive ? "opacity-100" : "opacity-0"
-                  }`}
-                >
-                  <h3 className="text-4xl text-white uppercase font-bold mb-4 text-center px-6">
-                    {solution.title}
-                  </h3>
-                  <p className="text-white max-w-xl text-center text-sm mb-6 px-6">
-                    {solution.description}
-                  </p>
-                  <Link
-                    href={solution.href}
-                    className="text-white border border-white px-6 py-2 hover:bg-white hover:text-black transition-colors duration-300"
+                <div className="absolute inset-0 w-full h-full">
+                  <motion.div
+                    className="absolute bottom-0 left-0 right-0 bg-[#4a4a3d]/70 bg-opacity-95"
+                    initial={{ height: isMobile ? "20%" : "25%" }}
+                    animate={{
+                      height:
+                        activeIndex === index
+                          ? "70%"
+                          : isMobile
+                          ? "20%"
+                          : "25%",
+                    }}
+                    transition={{ duration: 0.3 }}
                   >
-                    See Detail
-                  </Link>
-                </motion.div>
-              </motion.div>
-            );
-          })}
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-white mb-4 uppercase">
+                        {solution.title}
+                      </h3>
+
+                      <motion.div
+                        className="flex flex-col gap-4"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: activeIndex === index ? 1 : 0 }}
+                        transition={{ duration: 0.2, delay: 0.1 }}
+                      >
+                        <p className="text-sm text-white uppercase tracking-wide leading-relaxed font-light">
+                          {solution.description}
+                        </p>
+
+                        <Link
+                          href={solution.href}
+                          className="text-white border border-white px-6 py-2 w-fit hover:bg-white hover:text-black transition-colors duration-300"
+                        >
+                          See Detail
+                        </Link>
+                      </motion.div>
+                    </div>
+                  </motion.div>
+                </div>
+              </div>
+            </div>
+          ))}
         </motion.div>
       </div>
     </section>

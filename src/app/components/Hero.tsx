@@ -59,7 +59,7 @@ export default function HeroSection() {
         loop
         muted
         playsInline
-        className="relative inset-0 object-cover"
+        className="relative inset-0 object-fill"
       >
         <source src="/videos/hero_video.mp4" type="video/mp4" />
         {/* optional: fallback message */}
