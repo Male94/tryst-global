@@ -1,34 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function SolutionsOffered() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
-  const controls = useAnimation();
 
   useEffect(() => {
     setIsMobile("ontouchstart" in window);
-    startAutoScroll();
   }, []);
-
-  const startAutoScroll = () => {
-    controls.start({
-      x: ["0%", "-50%"],
-      transition: {
-        ease: "linear",
-        duration: 20,
-        repeat: Infinity,
-      },
-    });
-  };
-
-  const stopAutoScroll = () => {
-    controls.stop();
-  };
 
   const handleInteraction = (index: number, isEntering: boolean) => {
     setActiveIndex(isEntering ? index : null);
@@ -80,35 +63,24 @@ export default function SolutionsOffered() {
   ];
 
   return (
-    <section className="py-16 px-4 bg-white overflow-hidden">
+    <section className="py-16 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-5xl lg:text-6xl font-light italic text-gray-900 mb-16 text-left ramillas">
           Solutions Offered
         </h2>
 
-        {/* MOVING + DRAGGABLE CONTAINER */}
-        <motion.div
-          className="flex gap-8 lg:gap-12 w-[200%] cursor-grab active:cursor-grabbing"
-          animate={controls}
-          drag="x"
-          dragConstraints={{ left: -1000, right: 0 }}
-          dragElastic={0.1}
-          onDragStart={stopAutoScroll}
-          onDragEnd={startAutoScroll}
-          onMouseEnter={stopAutoScroll}
-          onMouseLeave={startAutoScroll}
-        >
-          {[...solutions, ...solutions].map((solution, index) => (
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+          {solutions.map((solution, index) => (
             <div
               key={index}
-              className="flex flex-col ramillas relative w-[400px] flex-shrink-0"
+              className="flex flex-col ramillas relative"
               onMouseEnter={() => !isMobile && handleInteraction(index, true)}
               onMouseLeave={() => !isMobile && handleInteraction(index, false)}
               onClick={() =>
                 isMobile && handleInteraction(index, activeIndex !== index)
               }
             >
-              <div className="relative w-full h-80 overflow-hidden shadow-lg">
+              <div className="relative w-full h-80 overflow-hidden">
                 <Image
                   src={solution.image}
                   alt={solution.title}
@@ -119,14 +91,14 @@ export default function SolutionsOffered() {
                 <div className="absolute inset-0 w-full h-full">
                   <motion.div
                     className="absolute bottom-0 left-0 right-0 bg-[#4a4a3d]/70 bg-opacity-95"
-                    initial={{ height: isMobile ? "20%" : "25%" }}
+                    initial={{ height: isMobile ? "20%" : "30%" }}
                     animate={{
                       height:
                         activeIndex === index
-                          ? "70%"
+                          ? "75%"
                           : isMobile
                           ? "20%"
-                          : "25%",
+                          : "30%",
                     }}
                     transition={{ duration: 0.3 }}
                   >
@@ -158,7 +130,7 @@ export default function SolutionsOffered() {
               </div>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -59,20 +59,20 @@ export default function WhatClientsSay() {
 
   return (
     <section className="relative bg-[url('/images/background_for_what_clients_say.jpg')] bg-cover bg-center bg-fixed overflow-visible">
-      <div className="grid md:grid-cols-2 items-start h-[500px] md:h-[1000px] relative w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 items-start h-[500px] md:h-[500px] relative w-full">
         {/* LEFT: Model Image overlapping top */}
-        <div className="absolute left-0 top-2 md:-top-40 w-1/2 h-full md:h-[1190px] z-[3] pointer-events-none">
+        <div className="hidden md:block relative md:-top-107 w-full md:w-full h-full md:h-[950px] z-50 pointer-events-none">
           <Image
             src="/images/what_clients_says_image.png"
             alt="Model"
             fill
-            className="object-cover"
+            className="object-fill w-full h-full"
             priority
           />
         </div>
 
         {/* RIGHT: Scrollable / Animated Content */}
-        <div className="absolute left-1/2 z-[2] p-10 md:p-16 lg:p-24 bg-white/80 backdrop-blur-sm overflow-hidden h-full md:ml-auto md:w-1/2">
+        <div className="absolute left-0 md:left-1/2 z-[2] p-10 md:p-16 lg:p-24 bg-white/80 backdrop-blur-sm overflow-hidden h-full md:ml-auto md:w-1/2">
           {/* Header + Navigation */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
