@@ -4,34 +4,13 @@ import Image from "next/image";
 
 export default function CustomerLogos() {
   const logos = [
-    {
-      name: "Druzzy",
-      subtitle: "Druzzy",
-      image: "/images/logos/druzzy.jpeg",
-    },
-    {
-      name: "Haggai",
-      subtitle: "PREMIUM QUALITY",
-      image: "/images/logos/haggai.jpeg",
-    },
-    {
-      name: "Best Tailor",
-      subtitle: "CUSTOM CLOTHING",
-      image: "", // purposely missing
-    },
-    {
-      name: "Best Sewing",
-      subtitle: "HAND MADE",
-      image: "", // purposely missing
-    },
-    {
-      name: "Sewing Shop",
-      subtitle: "TAILORED SERVICE",
-      image: "", // intentionally missing
-    },
+    { name: "Druzzy", subtitle: "Druzzy", image: "/images/logos/druzzy.jpeg" },
+    { name: "Haggai", subtitle: "PREMIUM QUALITY", image: "/images/logos/haggai.jpeg" },
+    { name: "Best Tailor", subtitle: "CUSTOM CLOTHING", image: "" },
+    { name: "Best Sewing", subtitle: "HAND MADE", image: "" },
+    { name: "Sewing Shop", subtitle: "TAILORED SERVICE", image: "" },
   ];
 
-  // SVG placeholders for missing logos
   const svgPlaceholders: string[] = [
     `<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 100 100'>
       <rect width='100' height='100' rx='10' fill='#808080'/>
@@ -48,7 +27,7 @@ export default function CustomerLogos() {
   ];
 
   return (
-    <section className="py-12 px-4 bg-gray-50">
+    <section className="py-2 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-16">
           {logos.map((logo, index) => {
@@ -64,11 +43,7 @@ export default function CustomerLogos() {
                 className="group flex flex-col items-center text-center opacity-70 hover:opacity-100 transition-all duration-300"
               >
                 <div
-                  className={`relative w-32 h-32 lg:w-40 lg:h-40 mb-3 transition-all duration-300 ${
-                    hasImage
-                      ? ""
-                      : "filter grayscale group-hover:grayscale-0 brightness-75 group-hover:brightness-100"
-                  }`}
+                  className="relative w-32 h-32 lg:w-40 lg:h-40 mb-3 transition-all duration-500 filter grayscale hover:grayscale-0"
                 >
                   <Image
                     src={hasImage ? logo.image : encodedSvg}
@@ -77,7 +52,9 @@ export default function CustomerLogos() {
                     className="object-contain"
                   />
                 </div>
-                {/* <p className="text-sm text-gray-700 font-light italic">
+
+                {/* Optional subtitle */}
+                {/* <p className="text-sm text-gray-700 font-light italic group-hover:text-gray-900 transition-all duration-300">
                   {logo.subtitle}
                 </p> */}
               </div>

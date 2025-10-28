@@ -3,10 +3,10 @@ import Link from "next/link";
 
 export default function ClothingSection() {
   return (
-    <section className="min-h-screen flex flex-col lg:flex-row bg-white p-10">
+    <section className="min-h-screen flex flex-col lg:flex-row bg-white p-10 h-[800px] md:h-[800px]">
       {/* Left Panel */}
-      <div className="relative bg-[url('/images/Swim.png')] bg-cover bg-center flex-1 md:p-4 p-8 m-3 h-[800px] md:h-[800px] w-full">
-        <h1 className="flex flex-col items-center w-[310px] md:w-[530px] absolute md:relative ramillas text-4xl lg:text-6xl font-light text-gray-900 leading-tight">
+      <div className="relative bg-[url('/images/Swim.png')] bg-cover bg-center flex-1 md:p-4 p-8 m-3  w-full  flex justify-center">
+        <h1 className="flex flex-col items-center w-[290px] md:w-[530px] absolute md:relative ramillas text-2xl lg:text-6xl font-light text-gray-900 leading-tight">
           <span className="text-left self-start">{`“Clothing that `}</span>
           <span className="text-right self-end">{`fits your life”`}</span>
         </h1>

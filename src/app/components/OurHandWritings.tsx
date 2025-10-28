@@ -47,9 +47,7 @@ export default function OurHandWritings() {
       {/* Content */}
       <div className="relative w-full h-full">
         {/* Section Title */}
-        <h2 className="relative text-center md:absolute md:top-6 sm:left-[10%] text-5xl lg:text-6xl font-light italic text-gray-900 ramillas z-10">
-          Our Works.
-        </h2>
+       
 
         {/* Main Layout */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 min-h-[600px] relative z-10">
@@ -57,9 +55,13 @@ export default function OurHandWritings() {
 
           {/* Categories */}
           <div className="flex justify-center items-center col-span-1 md:col-span-8 relative p-5 md:p-20">
+            <h2 className="relative text-center md:absolute md:top-15 text-5xl lg:text-6xl font-light italic text-gray-900 ramillas z-10">
+                  Our Works.
+               </h2>
             <div className="relative w-full h-full max-h-[500px] md:max-h-[350px] rounded-2xl overflow-hidden">
               <div className="absolute inset-0 bg-white/70"></div>
 
+               
               {/* Divider lines */}
               <div className="absolute inset-0 hidden sm:block">
                 <div className="absolute top-0 bottom-0 left-1/2 border-l border-yellow-400"></div>
