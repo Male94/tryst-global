@@ -74,36 +74,35 @@ export default function WhatClientsSay() {
         {/* RIGHT: Scrollable / Animated Content */}
         <div className="absolute left-0 md:left-1/2 z-[2] p-10 md:p-16 lg:p-24 overflow-hidden h-full md:ml-auto md:w-1/2">
           {/* Header + Navigation */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="flex items-center justify-between mb-10"
-        >
-          <h3 className="text-4xl font-bold text-gray-900 ramillas">
-            What Clients Say
-          </h3>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="flex items-center justify-between mb-10"
+          >
+            <h3 className="text-4xl font-bold text-gray-900 ramillas">
+              What Clients Say
+            </h3>
 
-          <div className="flex items-center gap-4">
-            <button
-              onClick={() => paginate(-1)}
-              aria-label="Previous review"
-              className="group flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full border border-gray-300 bg-white shadow-md hover:bg-blue-100 hover:border-blue-400 transition-all duration-300"
-            >
-              <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-gray-600 group-hover:text-blue-600 transform group-hover:-translate-x-1 transition-transform duration-300" />
-            </button>
+            <div className="flex items-center gap-4">
+              <button
+                onClick={() => paginate(-1)}
+                aria-label="Previous review"
+                className="group flex items-center justify-center w-10 h-10 md:w-12 md:h-12   hover:border-gray-400 backdrop-blur-sm transition-all duration-300"
+              >
+                <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-gray-600 group-hover:text-gray-800 transform group-hover:-translate-x-1 transition-transform duration-300" />
+              </button>
 
-            <button
-              onClick={() => paginate(1)}
-              aria-label="Next review"
-              className="group flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full border border-gray-300 bg-white shadow-md hover:bg-blue-100 hover:border-blue-400 transition-all duration-300"
-            >
-              <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-gray-600 group-hover:text-blue-600 transform group-hover:translate-x-1 transition-transform duration-300" />
-            </button>
-          </div>
-        </motion.div>
-
+              <button
+                onClick={() => paginate(1)}
+                aria-label="Next review"
+                className="group flex items-center justify-center w-10 h-10 md:w-12 md:h-12   hover:border-gray-400 backdrop-blur-sm transition-all duration-300"
+              >
+                <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-gray-600 group-hover:text-gray-800 transform group-hover:translate-x-1 transition-transform duration-300" />
+              </button>
+            </div>
+          </motion.div>
 
           {/* Animated Testimonials */}
           <div className="relative min-h-[200px]">
