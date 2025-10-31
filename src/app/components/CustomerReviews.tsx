@@ -58,7 +58,7 @@ export default function WhatClientsSay() {
   };
 
   return (
-    <section className="relative bg-[url('/images/background_for_what_clients_say.jpg')] bg-cover bg-center bg-fixed overflow-visible">
+    <section className="relative bg-[url('/images/background_for_our_approach.jpg')] bg-cover bg-center bg-fixed overflow-visible">
       <div className="grid grid-cols-1 md:grid-cols-2 items-start h-[500px] md:h-[500px] relative w-full">
         {/* LEFT: Model Image overlapping top */}
         {/* <div className="hidden md:block absolute  w-full md:w-1/2  h-full md:h-[550px] z-50 pointer-events-none">
@@ -81,7 +81,7 @@ export default function WhatClientsSay() {
             viewport={{ once: true }}
             className="flex items-center justify-between mb-10"
           >
-            <h3 className="text-4xl font-bold text-gray-900 ramillas">
+            <h3 className="text-4xl font-bold text-gray-900 ramillas text-white">
               What Clients Say
             </h3>
 
@@ -91,7 +91,7 @@ export default function WhatClientsSay() {
                 aria-label="Previous review"
                 className="group flex items-center justify-center w-10 h-10 md:w-12 md:h-12   hover:border-gray-400 backdrop-blur-sm transition-all duration-300"
               >
-                <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-gray-600 group-hover:text-gray-800 transform group-hover:-translate-x-1 transition-transform duration-300" />
+                <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:text-white-800 transform group-hover:-translate-x-1 transition-transform duration-300" />
               </button>
 
               <button
@@ -99,7 +99,7 @@ export default function WhatClientsSay() {
                 aria-label="Next review"
                 className="group flex items-center justify-center w-10 h-10 md:w-12 md:h-12   hover:border-gray-400 backdrop-blur-sm transition-all duration-300"
               >
-                <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-gray-600 group-hover:text-gray-800 transform group-hover:translate-x-1 transition-transform duration-300" />
+                <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:text-white-800 transform group-hover:translate-x-1 transition-transform duration-300" />
               </button>
             </div>
           </motion.div>
@@ -117,10 +117,10 @@ export default function WhatClientsSay() {
                 transition={{ duration: 0.6 }}
                 className="absolute"
               >
-                <p className="text-gray-700 text-2xl leading-relaxed mb-6 ramillas">
+                <p className="text-white text-2xl leading-relaxed mb-6 ramillas">
                   “{reviews[currentIndex].text}”
                 </p>
-                <p className="text-gray-500 font-xl ramillas">
+                <p className="text-white font-xl ramillas">
                   — {reviews[currentIndex].author}
                 </p>
               </motion.div>

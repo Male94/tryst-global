@@ -16,21 +16,23 @@ import QualityApproach from "./components/QualityApproach";
 
 export default function HomePage() {
   return (
-    <main className="flex flex-col min-h-screen">
-      <Hero />
+    <main className="flex flex-col min-h-screen overflow-x-hidden">
+      <div className="w-full h-full">
+        <Hero />
 
-      <ClothingSection />
+        <ClothingSection />
 
-      <SolutionsOffered />
+        <SolutionsOffered />
 
-      <OurHandWritings />
+        <OurHandWritings />
 
-      <CustomerReviews />
+        <CustomerReviews />
 
-      <CustomerLogos />
+        <CustomerLogos />
 
-      <QualityApproach />
-      {/* <ConnectWithUs /> */}
+        <QualityApproach />
+        {/* <ConnectWithUs /> */}
+      </div>
     </main>
   );
 }
