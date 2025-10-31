@@ -13,30 +13,32 @@ export default function Sidebar() {
     { href: "/products", label: "Products" },
     {
       label: "Services",
-      children: [
-        { href: "/services#global-sourcing", label: "Global Sourcing" },
-        {
-          href: "/services#design-and-development",
-          label: "Design and Development",
-        },
-        { href: "/services#manufacturing", label: "Manufacturing" },
-        {
-          href: "/services#training-and-development",
-          label: "Training & Development",
-        },
-        { href: "/services#textile-consulting", label: "Textile Consulting" },
-        {
-          href: "/services#private-labeling-and-branding",
-          label: "Private Labeling & Branding",
-        },
-      ],
+      href: "/services",
+      // children: [
+      //   { href: "/services#global-sourcing", label: "Global Sourcing" },
+      //   {
+      //     href: "/services#design-and-development",
+      //     label: "Design and Development",
+      //   },
+      //   { href: "/services#manufacturing", label: "Manufacturing" },
+      //   {
+      //     href: "/services#training-and-development",
+      //     label: "Training & Development",
+      //   },
+      //   { href: "/services#textile-consulting", label: "Textile Consulting" },
+      //   {
+      //     href: "/services#private-labeling-and-branding",
+      //     label: "Private Labeling & Branding",
+      //   },
+      // ],
     },
     {
+      href: "/about",
       label: "About Us",
-      children: [
-        { href: "/about#story", label: "Our Story" },
-        { href: "/about#team", label: "Our Team" },
-      ],
+      // children: [
+      //   { href: "/about#story", label: "Our Story" },
+      //   { href: "/about#team", label: "Our Team" },
+      // ],
     },
     { href: "/about#contact", label: "Contact Us" },
     { href: "/tech-profile", label: "Tech Profile" },
