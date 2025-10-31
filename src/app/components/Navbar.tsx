@@ -81,35 +81,16 @@ export default function Sidebar() {
 
         {/* Links */}
         <nav className="flex flex-col gap-3 mt-4 px-6 text-gray-800 ramillas text-sm uppercase">
-          {links.map((link, idx) =>
-            link.children ? (
-              <div key={idx} className="flex flex-col gap-2">
-                <span className="font-semibold">{link.label}</span>
-                <div className="flex flex-col gap-2 ml-4 text-gray-700">
-                  {link.children.map((sublink) => (
-                    <Link
-                      key={sublink.href}
-                      href={sublink.href}
-                      onClick={() => setIsOpen(false)}
-                      className="hover:text-black transition-colors"
-                      id={sublink.label}
-                    >
-                      {sublink.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            ) : (
-              <Link
-                key={idx}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="hover:text-black transition-colors"
-              >
-                {link.label}
-              </Link>
-            )
-          )}
+          {links.map((link, idx) => (
+            <Link
+              key={idx}
+              href={link.href}
+              onClick={() => setIsOpen(false)}
+              className="hover:text-black transition-colors"
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
       </motion.aside>
 
