@@ -63,7 +63,7 @@ export default function SolutionsOffered() {
   ];
 
   return (
-    <section className="py-16 px-4 bg-white">
+    <section className="py-16 px-4 bg-white min-h-screen">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-5xl lg:text-6xl font-light italic text-gray-900 mb-16 text-left ramillas">
           Solutions Offered

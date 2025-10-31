@@ -30,7 +30,7 @@ export default function OurHandWritings() {
   ];
 
   return (
-    <section className="relative bg-gray-50 h-full md:h-[750px] w-full overflow-hidden">
+    <section className="relative bg-gray-50 h-screen w-full overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0">
         <Image

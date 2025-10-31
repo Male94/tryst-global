@@ -58,22 +58,16 @@ export default function WhatClientsSay() {
   };
 
   return (
-    <section className="relative bg-[url('/images/background_for_our_approach.jpg')] bg-cover bg-center bg-fixed overflow-visible">
-      <div className="absolute inset-0 bg-white/30"></div>
-      <div className="grid grid-cols-1 md:grid-cols-2 items-start h-[500px] md:h-[500px] relative w-full">
-        {/* LEFT: Model Image overlapping top */}
-        {/* <div className="hidden md:block absolute  w-full md:w-1/2  h-full md:h-[550px] z-50 pointer-events-none">
-          <Image
-            src="/images/what_clients_says_image.png"
-            alt="Model"
-            fill
-            className="object-cover w-full h-full"
-            priority
-          />
-        </div> */}
+    <section className="relative overflow-hidden bg-[url('/images/background_for_our_approach.jpg')] bg-cover bg-center bg-fixed min-h-[500px]">
+      {/* Background Overlay */}
+      <div className="absolute inset-0 bg-black/30"></div>
 
-        {/* RIGHT: Scrollable / Animated Content */}
-        <div className="absolute left-0 md:left-1/2 z-[2] p-10 md:p-16 lg:p-24 overflow-hidden h-full md:ml-auto md:w-1/2">
+      <div className="grid grid-cols-1 md:grid-cols-2 min-h-[500px] relative w-full">
+        {/* Left Side - Empty space */}
+        <div className="hidden md:block"></div>
+
+        {/* Right Side - Content with Apple-like UI */}
+        <div className="relative bg-white/50 backdrop-blur-lg shadow-lg min-h-[500px] w-full p-8 md:p-12 lg:p-16 flex flex-col justify-center">
           {/* Header + Navigation */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -86,21 +80,21 @@ export default function WhatClientsSay() {
               What Clients Say
             </h3>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-6">
               <button
                 onClick={() => paginate(-1)}
                 aria-label="Previous review"
-                className="group flex items-center justify-center w-10 h-10 md:w-12 md:h-12   hover:border-gray-400 backdrop-blur-sm transition-all duration-300"
+                className="group p-1 transition-transform duration-300 hover:scale-110"
               >
-                <ChevronLeft className="w-5 h-5 md:w-6 md:h-6  group-hover:text-white-800 transform group-hover:-translate-x-1 transition-transform duration-300" />
+                <ChevronLeft className="w-6 h-6 md:w-7 md:h-7 text-gray-700 group-hover:text-gray-900" />
               </button>
 
               <button
                 onClick={() => paginate(1)}
                 aria-label="Next review"
-                className="group flex items-center justify-center w-10 h-10 md:w-12 md:h-12   hover:border-gray-400 backdrop-blur-sm transition-all duration-300"
+                className="group p-1 transition-transform duration-300 hover:scale-110"
               >
-                <ChevronRight className="w-5 h-5 md:w-6 md:h-6  group-hover:text-white-800 transform group-hover:translate-x-1 transition-transform duration-300" />
+                <ChevronRight className="w-6 h-6 md:w-7 md:h-7 text-gray-700 group-hover:text-gray-900" />
               </button>
             </div>
           </motion.div>
