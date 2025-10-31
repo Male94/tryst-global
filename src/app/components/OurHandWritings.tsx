@@ -30,44 +30,58 @@ export default function OurHandWritings() {
   ];
 
   return (
-    <section className="relative bg-[url('/images/background_for_products.jpg')] bg-cover bg-center bg-fixed bg-gray-50 h-full md:h-[850px] w-full overflow-hidden z-1">
+    <section className="relative bg-gray-50 h-full md:h-[750px] w-full overflow-hidden">
       {/* Background image */}
-      <div className="absolute inset-0 bg-white/20"></div>
+      <div className="absolute inset-0">
+        <Image
+          src="/images/OurHandWritingsIMG.png"
+          alt="our hand writing img"
+          fill
+          className="object-fill"
+          priority
+        />
+        {/* White overlay */}
+        <div className="absolute inset-0 bg-white/50" />
+      </div>
+
       {/* Content */}
       <div className="relative w-full h-full">
         {/* Section Title */}
+        {/* <h2 className="relative text-center md:absolute md:top-6 sm:left-[10%] text-5xl lg:text-6xl font-light italic text-gray-900 ramillas z-10">
+          Our Works.
+        </h2> */}
 
         {/* Main Layout */}
-        <div className="flex flex-col lg:flex-row justify-between w-full relative z-10">
-          {/* Categories with title - Right side on desktop */}
-          <div className="flex flex-col justify-center items-center lg:items-end relative md:p-12 lg:ml-auto lg:w-2/3">
-            <div className="relative w-full lg:w-4/5 min-h-[400px] md:min-h-[450px] rounded-2xl bg-white/70 p-3">
-              {/* Title with background to hide border */}
-              <div className="relative z-50 py-4 mb-3">
-                <div className="absolute inset-0 bg-white"></div>
-                <h2 className="relative text-4xl lg:text-5xl font-light italic text-gray-900 ramillas text-center">
-                  Our Works.
-                </h2>
-              </div>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 min-h-[600px] relative z-10">
+          <h2 className="relative text-center md:absolute top-12 md:top-15 sm:left-[58%] text-5xl lg:text-6xl font-light italic text-gray-900 ramillas z-10">
+            Our Works.
+          </h2>
+          <div className="max-sm:hidden md:col-span-4"></div>
+
+          {/* Categories */}
+          <div className="flex justify-center items-center col-span-1 md:col-span-8 relative p-5 md:p-20">
+            <div className="relative w-full h-full max-h-[500px] md:max-h-[350px] rounded-2xl overflow-hidden">
+              <div className="absolute inset-0 bg-white/70"></div>
+
               {/* Divider lines */}
               <div className="absolute inset-0 hidden sm:block">
-                <div className="absolute top-10 bottom-0 left-1/2 border-l border-yellow-400"></div>
+                <div className="absolute top-0 bottom-0 left-1/2 border-l border-yellow-400"></div>
                 <div className="absolute left-0 right-0 top-1/2 border-t border-yellow-400"></div>
               </div>
 
               {/* Categories Grid */}
               {/* Mobile Layout (Cards) */}
-              <div className="relative z-20 grid grid-cols-1 gap-4 sm:hidden">
+              <div className="grid grid-cols-1 gap-4 sm:hidden">
                 {categories.map((cat, idx) => (
                   <Link
                     key={idx}
                     href={`/products?category=${cat.slug}`}
-                    className="flex flex-col items-center text-center p-2 bg-white shadow-md rounded-lg group transition"
+                    className="flex flex-col p-6 bg-white shadow-md rounded-lg group transition"
                   >
-                    <p className="text-sm text-black mb-2 leading-relaxed group-hover:text-gray-900 transition">
+                    <p className="text-sm text-black mb-4 leading-relaxed group-hover:text-gray-900 transition">
                       {cat.desc}
                     </p>
-                    <h3 className="text-sm md:text-base font-bold text-gray-900 uppercase tracking-wide relative">
+                    <h3 className="text-sm md:text-lg font-bold text-gray-900 uppercase tracking-wide relative">
                       {cat.name}
                       <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
                     </h3>
@@ -76,17 +90,17 @@ export default function OurHandWritings() {
               </div>
 
               {/* Tablet & Desktop Layout (2x2 Grid) */}
-              <div className="hidden sm:grid relative z-20 h-full grid-cols-2 grid-rows-2">
+              <div className="hidden sm:grid absolute inset-0 grid-cols-2 grid-rows-2">
                 {categories.map((cat, idx) => (
                   <Link
                     key={idx}
                     href={`/products?category=${cat.slug}`}
-                    className="flex flex-col justify-start items-center text-center p-6  group transition"
+                    className={`flex flex-col justify-center ${cat.align} p-10 group transition`}
                   >
-                    <p className="text-sm text-gray-700 mb-3 leading-relaxed min-h-[3.5rem] group-hover:text-gray-900 transition">
+                    <p className="text-sm text-gray-700 mb-4 leading-relaxed min-h-[4.5rem] group-hover:text-gray-900 transition">
                       {cat.desc}
                     </p>
-                    <h3 className="text-sm md:text-xl font-bold text-gray-900 uppercase tracking-wide relative">
+                    <h3 className="text-sm md:text-lg font-bold text-gray-900 uppercase tracking-wide relative">
                       {cat.name}
                       <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
                     </h3>
