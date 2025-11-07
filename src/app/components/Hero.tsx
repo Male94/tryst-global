@@ -61,7 +61,7 @@ export default function HeroSection() {
         playsInline
         className="relative inset-0 object-cover"
       >
-        <source src="/videos/hero_video.mp4" type="video/mp4" />
+        <source src="/videos/hero_video1.mp4" type="video/mp4" />
         {/* optional: fallback message */}
         Your browser does not support the video tag.
       </video>
