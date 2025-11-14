@@ -12,7 +12,7 @@ export default function AboutPage() {
       <VisionMission />
       <CapacityInfo />
       <GarmentJourney />
-      <OurTeam />
+      {/* <OurTeam /> */}
       <StartProject />
     </main>
   );

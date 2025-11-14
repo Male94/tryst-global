@@ -24,7 +24,7 @@ const OurTeam = () => {
         </div> */}
 
         {/* Team Member 2 */}
-        <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 text-center">
+        {/* <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 text-center">
           <Image
             src="/images/about/image (2).png" // Replace with actual image URL
             alt="Thiranga Fernando"
@@ -36,7 +36,7 @@ const OurTeam = () => {
           <p className="text-gray-600">Chief Technical Officer & Founder</p>
           <p className="text-gray-500">WhatsApp/Zalo: +94 77 2512027</p>
           <p className="text-gray-500">thiranga@gmail.com</p>
-        </div>
+        </div> */}
 
         {/* Team Member 3 */}
         <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 text-center">
