@@ -20,7 +20,7 @@ export default function HomePage() {
       <div className="w-full h-full">
         <Hero />
 
-        <ClothingSection />
+        {/* <ClothingSection />
 
         <SolutionsOffered />
 
@@ -30,7 +30,7 @@ export default function HomePage() {
 
         <CustomerLogos />
 
-        <QualityApproach />
+        <QualityApproach /> */}
         {/* <ConnectWithUs /> */}
       </div>
     </main>

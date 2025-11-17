@@ -54,10 +54,10 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
           {/* <SearchField /> */}
-          <Navbar />
-          <SocialMediaIcons />
+          {/* <Navbar /> */}
+          {/* <SocialMediaIcons /> */}
           {children}
-          <Footer />
+          {/* <Footer /> */}
         </body>
       </Providers>
     </html>
