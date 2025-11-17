@@ -52,9 +52,9 @@ const AnimatedText = ({
 
 export default function HeroSection() {
   return (
-    <section className="relative max-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative bg-[url('/images/maintainance.jpg')] bg-cover bg-center bg-fixed h-screen  w-screen flex items-center justify-center overflow-hidden">
       {/* 🔹 Background Video */}
-      <video
+      {/* <video
         autoPlay
         loop
         muted
@@ -63,8 +63,8 @@ export default function HeroSection() {
       >
         <source src="/videos/hero_video1.mp4" type="video/mp4" />
         {/* optional: fallback message */}
-        Your browser does not support the video tag.
-      </video>
+      {/* Your browser does not support the video tag. */}
+      {/* </video> */}
 
       {/* 🔹 Dark overlay for contrast */}
       {/* <div className="absolute inset-0 bg-black/40"></div> */}
