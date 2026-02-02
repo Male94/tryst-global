@@ -2,11 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Fraunces, Open_Sans } from "next/font/google";
-import SearchField from "./components/SearchField";
 import Navbar from "@/app/components/Navbar";
 import Footer from "./components/Footer";
 import SocialMediaIcons from "./components/SocialMediaIcons";
-import { SessionProvider } from "next-auth/react";
 import { Providers } from "./admin/Providers";
 
 const fraunces = Fraunces({
@@ -54,10 +52,10 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
           {/* <SearchField /> */}
-          {/* <Navbar /> */}
-          {/* <SocialMediaIcons /> */}
+          <Navbar />
+          <SocialMediaIcons />
           {children}
-          {/* <Footer /> */}
+          <Footer />
         </body>
       </Providers>
     </html>
